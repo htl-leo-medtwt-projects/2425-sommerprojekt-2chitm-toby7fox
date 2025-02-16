@@ -1,12 +1,19 @@
 body{
     user-select: none;
+    font-size: 3vh;
+
+    display: flex;
+
+
+    margin: 0;
+    padding: 0;
 }
 
 #trainingsplan{
-    font-size: 3vw;
     user-select: none;
     display: flex;
     flex-direction: column;
+    background-color: chartreuse;
 }
 
 .folder{
@@ -19,10 +26,13 @@ body{
     padding-left: 3vw;
     cursor: pointer;
     display: flex;
+    flex-direction: column;
+    margin: 0;
 }
 
 .weight{
     margin: 0;
+    margin-right: 0.5vw;
 }
 
 .weight:hover, .reps:hover, .name:hover{
@@ -46,8 +56,8 @@ p{
 }
 
 img{
-    width: 2vw;
-    height: 2vw;
+    width: 3vh;
+    height: 3vh;
     cursor: pointer;
 }
 

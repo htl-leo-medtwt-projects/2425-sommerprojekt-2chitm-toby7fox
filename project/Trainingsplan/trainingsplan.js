@@ -42,7 +42,7 @@ function addFolder(object){
             <p class="name" onclick="rename(this)">clickToRename</p>
             <img src="addFolder.png" alt="addFolder" onclick="addFolder(this.parentElement.parentElement)">
             <img src="add.png" alt="addExersice" onclick="addExersice(this.parentElement.parentElement)">
-            <img src="hide.png" alt="hide" onclick="hide(this.parentElement.parentElement)">
+            <img src="hide.png" alt="hide" onclick="hide(this.parentElement.parentElement, this)">
             <img src="delete.png" alt="delete" onclick="remove(this.parentElement.parentElement)">
         </div>
     </div>    
@@ -58,7 +58,7 @@ function rename(object){
 }
 
 
-function hide(object) {
+function hide(object, icon) {
     const children = object.children;
     for (let i = 0; i < children.length; i++) {
         const child = children[i];
@@ -69,10 +69,14 @@ function hide(object) {
 
         if (child.style.display === "none"){
             child.style.display = "flex";
+            icon.src = "hide.png"
         }else{
             child.style.display = "none";
+            icon.src = "see.png";
         }
     }
+
+    saveAll();
 }
 
 
