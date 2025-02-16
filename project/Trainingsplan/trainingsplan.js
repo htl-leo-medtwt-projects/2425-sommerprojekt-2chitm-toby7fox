@@ -8,7 +8,7 @@ function addExersice(object){
     if (object.className === "exersice"){
         object.innerHTML += `
             <div class="exersice">
-                <div class="folderStuff">
+                <div class="exersiceStuff">
                     <p class="name" onclick="rename(this)">clickToRename</p>
                     <p class="weight" onclick="rename(this)">weight</p>
                     <p> kg/</p>
@@ -20,7 +20,7 @@ function addExersice(object){
     }else{
         object.innerHTML += `
             <div class="exersice">
-                <div class="folderStuff">
+                <div class="exersiceStuff">
                     <p class="name" onclick="rename(this)">clickToRename</p>
                     <p class="weight" onclick="rename(this)">weight</p>
                     <p> kg/</p>

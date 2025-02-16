@@ -1,19 +1,26 @@
 body{
     user-select: none;
-    font-size: 3vh;
+    font-size: 4vh;
 
     display: flex;
+    justify-content: center;
 
 
     margin: 0;
     padding: 0;
+
+    background-color: #242424;
+    color: white;
 }
 
 #trainingsplan{
     user-select: none;
     display: flex;
     flex-direction: column;
-    background-color: chartreuse;
+}
+
+#titel{
+    font-size: 5vh;
 }
 
 .folder{
@@ -36,7 +43,7 @@ body{
 }
 
 .weight:hover, .reps:hover, .name:hover{
-    background-color: red;
+    text-decoration: underline;
 }
 
 .reps{
@@ -56,18 +63,31 @@ p{
 }
 
 img{
-    width: 3vh;
-    height: 3vh;
+    width: 4vh;
+    height: 4vh;
     cursor: pointer;
+    margin-left: 0.5vh;
 }
 
 img:hover{
-    background-color: aqua;
+    width: 4.5vh;
+    height: 4.5vh;
 }
 
 .folderStuff{
     display: flex;
     flex-direction: row;
     align-items: center;
+    text-decoration: underline;
+}
 
+.exersiceStuff{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    padding: 2vw;
+    background-color: #333333;
+
+    border: 1px solid white;
 }
