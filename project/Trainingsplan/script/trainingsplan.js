@@ -13,7 +13,7 @@ function addExersice(object){
                     <p class="weight" onclick="rename(this)">weight</p>
                     <p> kg/</p>
                     <p class="reps" onclick="rename(this)">reps</p>
-                    <img src="delete.png" alt="delete" onclick="remove(this.parentElement.parentElement)">
+                    <img src="img/delete.png" alt="delete" onclick="remove(this.parentElement.parentElement)">
                 </div>
             </div>
             `;
@@ -25,8 +25,8 @@ function addExersice(object){
                     <p class="weight" onclick="rename(this)">weight</p>
                     <p> kg/</p>
                     <p class="reps" onclick="rename(this)">reps</p>
-                    <img src="add.png" alt="addExersice" onclick="addExersice(this.parentElement.parentElement)">
-                    <img src="delete.png" alt="delete" onclick="remove(this.parentElement.parentElement)">
+                    <img src="img/add.png" alt="addExersice" onclick="addExersice(this.parentElement.parentElement)">
+                    <img src="img/delete.png" alt="delete" onclick="remove(this.parentElement.parentElement)">
                 </div>
             </div>
             `;
@@ -40,10 +40,10 @@ function addFolder(object){
     <div class="folder">
         <div class="folderStuff">
             <p class="name" onclick="rename(this)">clickToRename</p>
-            <img src="addFolder.png" alt="addFolder" onclick="addFolder(this.parentElement.parentElement)">
-            <img src="add.png" alt="addExersice" onclick="addExersice(this.parentElement.parentElement)">
-            <img src="hide.png" alt="hide" onclick="hide(this.parentElement.parentElement, this)">
-            <img src="delete.png" alt="delete" onclick="remove(this.parentElement.parentElement)">
+            <img src="img/addFolder.png" alt="addFolder" onclick="addFolder(this.parentElement.parentElement)">
+            <img src="img/add.png" alt="addExersice" onclick="addExersice(this.parentElement.parentElement)">
+            <img src="img/hide.png" alt="hide" onclick="hide(this.parentElement.parentElement, this)">
+            <img src="img/delete.png" alt="delete" onclick="remove(this.parentElement.parentElement)">
         </div>
     </div>    
     `;
