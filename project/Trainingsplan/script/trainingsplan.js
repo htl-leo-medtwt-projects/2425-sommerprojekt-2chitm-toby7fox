@@ -69,10 +69,10 @@ function hide(object, icon) {
 
         if (child.style.display === "none"){
             child.style.display = "flex";
-            icon.src = "hide.png"
+            icon.src = "img/hide.png"
         }else{
             child.style.display = "none";
-            icon.src = "see.png";
+            icon.src = "img/see.png";
         }
     }
 

@@ -21,12 +21,14 @@ body{
 
 #titel{
     font-size: 5vh;
+    margin-top: 0;
 }
 
 .folder{
     padding-left: 3vw;
     display: flex;
     flex-direction: column;
+    margin-top: 1vh;
 }
 
 .exersice{
@@ -35,6 +37,7 @@ body{
     display: flex;
     flex-direction: column;
     margin: 0;
+    margin-top: 0.5vh;
 }
 
 .weight{
