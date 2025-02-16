@@ -9,6 +9,8 @@ function addExersice(object){
         object.innerHTML += `
             <div class="exersice">
                 <div class="exersiceStuff">
+                    <p class="count" onclick="rename(this)">0</p>
+                    <p class="x">x</p>
                     <p class="name" onclick="rename(this)">clickToRename</p>
                     <p class="weight" onclick="rename(this)">weight</p>
                     <p> kg/</p>
@@ -21,6 +23,8 @@ function addExersice(object){
         object.innerHTML += `
             <div class="exersice">
                 <div class="exersiceStuff">
+                    <p class="count" onclick="rename(this)">0</p>
+                    <p class="x">x</p>
                     <p class="name" onclick="rename(this)">clickToRename</p>
                     <p class="weight" onclick="rename(this)">weight</p>
                     <p> kg/</p>
