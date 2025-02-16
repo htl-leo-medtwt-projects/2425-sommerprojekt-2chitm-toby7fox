@@ -1,67 +1,91 @@
 function remove(object){
-    object.innerHTML = null;
+    object.remove();
+
+    saveAll();
 }
 
 function addExersice(object){
     if (object.className === "exersice"){
         object.innerHTML += `
             <div class="exersice">
-                <input type="name" class="name" value="name" onchange="changeValue(this)"> 
-                <input class="weight" placeholder="weig." onchange="changeValue(this)"> 
-                <input class="reps" placeholder="reps" onchange="changeValue(this)">
-                <img src="delete.png" alt="delete" onclick="remove(this.parentElement)">
+                <div class="folderStuff">
+                    <p class="name" onclick="rename(this)">clickToRename</p>
+                    <p class="weight" onclick="rename(this)">weight</p>
+                    <p> kg/</p>
+                    <p class="reps" onclick="rename(this)">reps</p>
+                    <img src="delete.png" alt="delete" onclick="remove(this.parentElement.parentElement)">
+                </div>
             </div>
             `;
     }else{
         object.innerHTML += `
             <div class="exersice">
-                <input type="name" class="name" value="name" onchange="changeValue(this)"> 
-                <input class="weight" placeholder="weig." onchange="changeValue(this)"> 
-                <input class="reps" placeholder="reps" onchange="changeValue(this)">
-                <img src="add.png" alt="addExersice" onclick="addExersice(this.parentElement)">
-                <img src="delete.png" alt="delete" onclick="remove(this.parentElement)">
+                <div class="folderStuff">
+                    <p class="name" onclick="rename(this)">clickToRename</p>
+                    <p class="weight" onclick="rename(this)">weight</p>
+                    <p> kg/</p>
+                    <p class="reps" onclick="rename(this)">reps</p>
+                    <img src="add.png" alt="addExersice" onclick="addExersice(this.parentElement.parentElement)">
+                    <img src="delete.png" alt="delete" onclick="remove(this.parentElement.parentElement)">
+                </div>
             </div>
             `;
     }
+
+    saveAll();
 }
 
 function addFolder(object){
     object.innerHTML += `
     <div class="folder">
-        <input type="text" class="name" value="name" onchange="changeValue(this)">
-        <img src="addFolder.png" alt="addFolder" onclick="addFolder(this.parentElement)">
-        <img src="add.png" alt="addExersice" onclick="addExersice(this.parentElement)">
-        <img src="hide.png" alt="hide" onclick="hide(this.parentElement)">
-        <img src="delete.png" alt="delete" onclick="remove(this.parentElement)">
+        <div class="folderStuff">
+            <p class="name" onclick="rename(this)">clickToRename</p>
+            <img src="addFolder.png" alt="addFolder" onclick="addFolder(this.parentElement.parentElement)">
+            <img src="add.png" alt="addExersice" onclick="addExersice(this.parentElement.parentElement)">
+            <img src="hide.png" alt="hide" onclick="hide(this.parentElement.parentElement)">
+            <img src="delete.png" alt="delete" onclick="remove(this.parentElement.parentElement)">
+        </div>
     </div>    
     `;
+
+    saveAll();
 }
 
-let boolean = "none";
+function rename(object){
+    let benutzereingabe = prompt("Bitte gib etwas ein:");
+    object.textContent  = benutzereingabe;
+    saveAll();
+}
+
 
 function hide(object) {
     const children = object.children;
     for (let i = 0; i < children.length; i++) {
         const child = children[i];
 
+        if (child.classList.contains('folderStuff')) {
+            continue;
+        }
 
-        if (!(child.tagName.toLowerCase() === 'img' && child.alt && child.alt.toLowerCase() === 'hide') && !(child.tagName.toLowerCase() === 'input' && child.classList.contains('name'))) {
-    	    if (boolean === "none") {
-                child.dataset.originalDisplay = child.style.display || getComputedStyle(child).display;
-                child.style.display = "none";
-            } else {
-                child.style.display = child.dataset.originalDisplay || "";
-            }
+        if (child.style.display === "none"){
+            child.style.display = "flex";
+        }else{
+            child.style.display = "none";
         }
     }
-
-    boolean = (boolean === "none") ? "show" : "none";
 }
 
-function changeValue(object){
-    const value = object.value;
-    alert(value);
-    alert(object);
-    object.innerHTML = `<input type="text" class="name" value="${value}" onchange="changeValue(this)">`;
-    alert(object.value);
+
+function saveAll(){
+    localStorage.setItem('trainingsplan', document.getElementById('trainingsplan').innerHTML);
 }
+
+function loadAll(){
+    document.getElementById('trainingsplan').innerHTML = localStorage.getItem('trainingsplan');
+}
+
+window.onload = function() {
+    loadAll();
+};
+
+

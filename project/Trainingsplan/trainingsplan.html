@@ -10,12 +10,22 @@
 <body>
 
     <div class="folder" id="trainingsplan">
-        Trainingsplan
-        <img src="addFolder.png" alt="addFolder" onclick="addFolder(this.parentElement)">
-        <img src="add.png" alt="addExersice" onclick="addExersice(this.parentElement)">
-        <img src="hide.png" alt="hide" onclick="hide(this.parentElement)">
+        <div class="folderStuff">
+            Trainingsplan
+            <img src="addFolder.png" alt="addFolder" onclick="addFolder(this.parentElement.parentElement)">
+            <img src="add.png" alt="addExersice" onclick="addExersice(this.parentElement.parentElement)">
+            <img src="hide.png" alt="hide" onclick="hide(this.parentElement.parentElement)">
+        </div>
     </div>
-    
+
+    <datalist id="exersices">
+        <option value="Apfel">
+        <option value="Banane">
+        <option value="Kirsche">
+        <option value="Orange">
+        <option value="Traube">
+    </datalist>
+
 
 </body>
 </html>
