@@ -1,9 +1,13 @@
+body{
+    user-select: none;
+}
+
 #trainingsplan{
     font-size: 3vw;
     user-select: none;
 }
 
-.ordner{
+.folder{
     padding-left: 3vw;
 }
 
@@ -34,4 +38,5 @@
 
 img{
     width: 3vw;
+    cursor: pointer;
 }
