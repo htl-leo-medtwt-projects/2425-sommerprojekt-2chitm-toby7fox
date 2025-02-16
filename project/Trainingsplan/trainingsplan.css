@@ -1,0 +1,37 @@
+#trainingsplan{
+    font-size: 3vw;
+    user-select: none;
+}
+
+.ordner{
+    padding-left: 3vw;
+}
+
+.exersice{
+    padding-left: 3vw;
+    cursor: pointer;
+}
+
+.weight{
+    width: fit-content;
+    height: fit-content;
+}
+
+.reps{
+    width: fit-content;
+    height: fit-content;
+}
+
+.name {
+    border: none;
+    outline: none;
+    font-size: 3vw;
+    cursor: text;
+    margin: 0;
+    padding: 0;
+    width: fit-content;
+}
+
+img{
+    width: 3vw;
+}
