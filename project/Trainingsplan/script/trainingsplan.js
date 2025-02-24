@@ -1,6 +1,5 @@
 function remove(object){
     object.remove();
-
     saveAll();
 }
 
@@ -55,11 +54,44 @@ function addFolder(object){
     saveAll();
 }
 
-function rename(object){
-    let benutzereingabe = prompt("Bitte gib etwas ein:");
-    object.textContent  = benutzereingabe;
-    saveAll();
+
+function rename(object) {
+    let renameBox = document.getElementById('renameBox');
+    let renameText = document.getElementById('renameText');
+    let renameInput = document.getElementById('renameInput');
+
+    renameBox.style.display = "flex";
+
+    if (object.parentElement.classList.contains("folderStuff")) {
+        renameInput.outerHTML = `<input id="renameInput" list="categorys"></input>`;
+        renameInput = document.getElementById('renameInput'); // Neu holen
+    }
+
+    if (object.classList.contains("name")) {
+        renameText.textContent = "New Name:";
+    } else if (object.classList.contains("weight")) {
+        renameText.textContent = "Weight in kg:";
+    } else if (object.classList.contains("reps")) {
+        renameText.textContent = "Rep count:";
+    } else if (object.classList.contains("count")) {
+        renameText.textContent = "Set count:";
+    }
+
+    // Vorherige Listener entfernen
+    renameInput.replaceWith(renameInput.cloneNode(true));
+    renameInput = document.getElementById('renameInput');
+
+    renameInput.addEventListener('keypress', function(event) {
+        if (event.key === 'Enter' && renameInput.value.trim() !== "") {
+            object.textContent = renameInput.value.trim();
+            renameBox.style.display = "none";
+            saveAll();
+        }
+    });
+
+    renameInput.focus();
 }
+
 
 
 function hide(object, icon) {
