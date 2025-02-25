@@ -1,3 +1,13 @@
+
+.sono-lol {
+    font-family: "Sono", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+      "MONO" 1;
+  }
+
 body{
     user-select: none;
     font-size: 4vh;
@@ -9,7 +19,7 @@ body{
     padding: 0;
     background-color: #1e1e2f;
     color: #e0e0e0;
-    font-family: Arial, sans-serif;
+    font-family: "Sono", serif;
     transition: background-color 0.3s ease-in-out;
 }
 
@@ -29,7 +39,7 @@ body{
 }
 
 #titel{
-    font-size: 5.5vh;
+    font-size: 10vh;
     font-weight: bold;
     color: #00adb5;
     margin: 0;
@@ -45,72 +55,28 @@ body{
 
 .folder:hover{
     transform: scale(1.02);
-    background-color: #393955;
     border-radius: 8px;
 }
 
-.exersice{
-    padding-left: 3vw;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    margin-top: 0.5vh;
-    background-color: #3b3b4f;
-    border-radius: 6px;
-    padding: 1vh;
-    transition: background-color 0.2s;
+.folder:hover img{
+    opacity: 1;
 }
 
-.exersiceStuff{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 0vw;
-    padding-left: 2vw;
-    padding-right: 2vw;
-    background-color: #2f2f40;
-    border-radius: 8px;
-    border: 1px solid #00adb5;
-    transition: all 0.3s ease;
-    margin: 0;
-}
 
-.exersiceStuff:hover{
-    box-shadow: 0 0 12px #00adb5;
-}
-
-.exersice:hover{
-    background-color: #4f4f68;
-}
 
 p{
     font-size: 3vh;
-}
-
-.reps, .name{
     margin: 0;
-    margin-right: 1vw;
-    font-weight: 500;
-    color: #f5f5f5;
-    cursor: pointer;
-}
-
-.weight:hover, .reps:hover, .name:hover, .count:hover{
-    text-decoration: underline;
-    color: #00adb5;
-}
-
-.x{
-    margin-right: 0.5vw;
 }
 
 img{
-    width: 4vh;
-    height: 4vh;
+    width: 3vh;
+    height: 3vh;
     cursor: pointer;
-    margin-left: 0.5vh;
+    margin-left: 1vh;
     transition: transform 0.2s;
+
+    opacity: 0;
 }
 
 img:hover{
@@ -121,7 +87,7 @@ img:hover{
     display: flex;
     flex-direction: row;
     align-items: center;
-    text-decoration: underline;
+
     padding: 1vh;
     border-bottom: 2px solid #00adb5;
 }

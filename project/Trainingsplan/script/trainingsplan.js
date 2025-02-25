@@ -7,30 +7,35 @@ function addExersice(object){
     if (object.className === "exersice"){
         object.innerHTML += `
             <div class="exersice">
-                <div class="exersiceStuff">
+            <div class="exersiceStuff">
+                <p class="name" onclick="rename(this)">clickToName</p>
+                <div class="exersiceStats">
                     <p class="count" onclick="rename(this)">0</p>
                     <p class="x">x</p>
-                    <p class="name" onclick="rename(this)">clickToRename</p>
                     <p class="weight" onclick="rename(this)">weight</p>
                     <p> kg/</p>
                     <p class="reps" onclick="rename(this)">reps</p>
-                    <img src="img/delete.png" alt="delete" onclick="remove(this.parentElement.parentElement)">
+                    <img src="img/delete.png" alt="delete" onclick="remove(this.parentElement.parentElement.parentElement)">
                 </div>
+            </div>
             </div>
             `;
     }else{
         object.innerHTML += `
             <div class="exersice">
-                <div class="exersiceStuff">
+            <div class="exersiceStuff">
+                <p class="name" onclick="rename(this)">clickToName</p>
+                <div class="exersiceStats">
                     <p class="count" onclick="rename(this)">0</p>
                     <p class="x">x</p>
-                    <p class="name" onclick="rename(this)">clickToRename</p>
                     <p class="weight" onclick="rename(this)">weight</p>
                     <p> kg/</p>
                     <p class="reps" onclick="rename(this)">reps</p>
-                    <img src="img/add.png" alt="addExersice" onclick="addExersice(this.parentElement.parentElement)">
-                    <img src="img/delete.png" alt="delete" onclick="remove(this.parentElement.parentElement)">
+
+                    <img src="img/add.png" alt="addExersice" onclick="addExersice(this.parentElement.parentElement.parentElement)">
+                    <img src="img/delete.png" alt="delete" onclick="remove(this.parentElement.parentElement.parentElement)">
                 </div>
+            </div>
             </div>
             `;
     }
@@ -42,7 +47,7 @@ function addFolder(object){
     object.innerHTML += `
     <div class="folder">
         <div class="folderStuff">
-            <p class="name" onclick="rename(this)">clickToRename</p>
+            <p class="name" onclick="rename(this)">clickToName</p>
             <img src="img/addFolder.png" alt="addFolder" onclick="addFolder(this.parentElement.parentElement)">
             <img src="img/add.png" alt="addExersice" onclick="addExersice(this.parentElement.parentElement)">
             <img src="img/hide.png" alt="hide" onclick="hide(this.parentElement.parentElement, this)">
@@ -127,5 +132,6 @@ function loadAll(){
 window.onload = function() {
     loadAll();
 };
+
 
 
