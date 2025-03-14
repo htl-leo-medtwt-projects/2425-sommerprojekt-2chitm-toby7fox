@@ -1,6 +1,0 @@
-beim un-hidden einer langes liste von exersices wird öfters die Überschrift (Trainingsplan) abgeschnitten
-
-tags die noch nicht renamed worden sind sollen anders auschauen
-anderes layout der exersice-box
-vorgewfertigte trainingspläne
-wiederholungsbereich eingeben
