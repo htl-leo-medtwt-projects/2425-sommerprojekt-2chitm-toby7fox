@@ -1,4 +1,4 @@
-const days = [
+var days = [
     {
         "name": "Push",
         "days": [
