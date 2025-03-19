@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style/plan.css">
     <link rel="stylesheet" href="style/day.css">
 
+    <script src="../standard/data.js" defer></script>
     <script src="script/plan.js" defer></script>
     <script src="../standard/header_footer.js" defer></script>
 
@@ -18,14 +19,11 @@
 <body>
     <div id="contentBox">
         <div class="day">
-            <p class="daytext" onclick="rename(this.parentElement.querySelector('p'))">Push</p>
-        </div>
-        <div class="day">
-            <p class="daytext" onclick="rename(this.parentElement.querySelector('p'))">Push</p>
+            <p class="daytext" onclick="rename(this)">Push</p>
         </div>
     </div>
 
-    <div id="addButton" onclick="addday()">
+    <div id="addButton" onclick="addDay()">
         <p>+</p>
     </div>
 </body>

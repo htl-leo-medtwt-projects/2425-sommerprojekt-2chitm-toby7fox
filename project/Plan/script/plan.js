@@ -1,136 +1,67 @@
+//add-Funktion ------------------------------------------------------------------
 function addDay(){
-    for(i = 0; i < days.length; i++){
+    for(i = 0; i < days.length; i++){ //FEHLERMEDLDUNG FIXEN!!!!!!!!!!!!!!!!
         if (days[i].name == "Name"){
             alert("gscheide Fehlermeldung einfügen");
             return;
         }
     }
 
-    days.push(
+    days.push( //hinzufügen eines Tages zum JSON
         {
             "name": "Name",
-            "days": [
-                {
-                    "name": "Name",
-                    "sets": 0,
-                    "weight": 0,
-                    "reps": 0
-                }
-            ]
+            "days": []
         }
     );
 
-    loaddays();
-
-
+    loaddays(); //neu laden
 }
+//--------------------------------------------------------------------------------
 
-let daytext;
-let text;
-let className;
+
+//rename-progress ------------------------------------------------------------
+let dayName;
 function rename(e) {
-    event.stopPropagation();
-    text = e.innerHTML;
-    daytext = e;
-    className = e.className;
+    event.stopPropagation(); //laden der Übungen stopen
 
-    if (className == "daytext" || className == "dayTitle"){
-        e.innerHTML = `<input onchange="rename2(this)" onblur="rename2(this)" class="inputCN">`;
-    } else if (className == "exerciseName"){
-
-    } else if (className == "sets" || className == "reps" || className == "weight"){
-
-    }
-
+    dayName = e.innerHTML; //das p-Element abspeichern
+    e.innerHTML = `<input onchange="rename2(this.value)" onblur="rename2(this.value)" class="inputCN">`; //input feld generieren
     
-    const newInput = e.querySelector('input');
+
+
+    const newInput = e.querySelector('input'); //Fokus im Input Feld setzen
     setTimeout(() => {
         newInput.focus();
     }, 0);
 }
 
-function rename2(i){
-    if (i.value == ""){
-        daytext.innerHTML = `<p onclick="rename(this.parentElement)">${text}</p>`;
+function rename2(value){  //ÜBERPRÜFUNG AUF DOPPELTE NAMEN
+    if (value.value == ""){ //wenn der input lehr ist: alles reseten
+        loaddays();
+        return;
     }else{
-        daytext.innerHTML = `<p onclick="rename(this.parentElement)">${i.value}</p>`;
+        for(i = 0; i < days.length; i++){ //FEHLERMEDLDUNG FIXEN!!!!!!!!!!!!!!!!
+            if (days[i].name == dayName){
+                days[i].name = value;
+                loaddays();
+            }
+        }
     }
     
 }
+//------------------------------------------------------------------------------
 
+//lade-funktion -------------------------------------------
 function loaddays(){
-    document.getElementById('contentBox').innerHTML = "";
+    document.getElementById('contentBox').innerHTML = ""; //alles resten
 
-    for(i = 0; i < days.length; i++){
+    for(i = 0; i < days.length; i++){  //neu laden
         document.getElementById('contentBox').innerHTML += `
         <div class="day" onclick="loaddays(this)">
-            <p class="daytext" onclick="rename(this.parentElement.querySelector('p'))">${days[i].name}</p>
+            <p class="dayName" onclick="rename(this)">${days[i].name}</p>
         </div>
     `;
     }
 }
-
-function loadCategorys(e){
-    document.getElementById('contentBox').innerHTML = "";
-
-    for(i = 0; i < days.length; i++){
-        if (days[i].name == e.querySelector('p').innerHTML){
-            for(j = 0; j < days[i].days.length; j++){
-                document.getElementById('contentBox').innerHTML += `
-                    
-
-
-
-
-            `;
-            }
-
-        }
-    }
-
-    
-}
-
-const days = [
-    {
-        "name": "Push",
-        "days": [
-            {
-                "name": "Chest",
-                exercises: [
-                    {
-                        "name": "Benchpress",
-                        "sets": 2,
-                        "weight": 90,
-                        "reps": 5
-                    },
-                    {
-                        "name": "Dips",
-                        "sets": 2,
-                        "weight": 90,
-                        "reps": 5
-                    }
-                ]
-            },
-            {
-                "name": "Shoulder",
-                exercises: [
-                    {
-                        "name": "Shoulderpress",
-                        "sets": 2,
-                        "weight": 90,
-                        "reps": 5
-                    },
-                    {
-                        "name": "Sidelift",
-                        "sets": 2,
-                        "weight": 90,
-                        "reps": 5
-                    }
-                ]
-            }
-        ]
-    }
-]
-
-loaddays();
+loaddays(); //beim laden der website: alle elemente laden
+//----------------------------------------------------------

@@ -1,8 +1,3 @@
-body{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
 #contentBox{
     display: flex;
@@ -56,7 +51,7 @@ body{
     cursor: pointer;;
 }
 
-.inputNN{
+.inputCN{
     font-size: 2.5vh;
     width: 16vh;
     border: none;
