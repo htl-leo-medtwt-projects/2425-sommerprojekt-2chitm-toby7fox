@@ -1,7 +1,8 @@
 var days = [
     {
-        "name": "Push",
-        "days": [
+        "name": "Example",
+        "id": "Example1",
+        "categorys": [
             {
                 "name": "Chest",
                 exercises: [

@@ -1,9 +1,9 @@
 
 #contentBox{
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: flex-start;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
 
     gap: 3.5vh;
     padding: 3.5vh;
@@ -12,9 +12,9 @@
 }
 
 .day{
-    width: 17vh;
+    width: 40vh;
     height: 17vh;
-    font-size: 3vh;
+    font-size: 4vh;
 
     display: flex;
     align-items: center;
@@ -52,9 +52,33 @@
 }
 
 .inputCN{
-    font-size: 2.5vh;
-    width: 16vh;
+    font-size: 4vh;
+    width: 35vh;
     border: none;
     text-align: center;
     outline: none;
+    color: #4C4C4C;
 }
+
+
+
+.blinking-text {
+    animation: blink 1s infinite;
+  }
+
+@keyframes blink {
+    0% { color: #4C4C4C; }
+    10% { color: red; }
+    90% { color: red; }
+    100% { color: #4C4C4C; }
+  }
+
+
+@media(min-width: 60vh){
+    .day{
+        width: 50vh;
+    }
+}
+  
+
+  
