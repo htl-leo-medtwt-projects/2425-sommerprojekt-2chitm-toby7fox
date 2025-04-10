@@ -87,7 +87,6 @@ const lol = document.getElementsByClassName("day");
 for (let i = 0; i < lol.length; i++) {
     lol[i].addEventListener("contextmenu", function(event) {
         event.preventDefault();
-        alert("lol");
     });
 }
 

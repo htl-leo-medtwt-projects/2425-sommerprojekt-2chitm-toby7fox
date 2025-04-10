@@ -18,34 +18,10 @@
 </head>
 <body>
     <div id="contentBox">
-        <img src="img/back.png" alt="back" id="backArrow">
-
-        <div class="categoryBox">
-
-            <div class="categoryTitleBox">
-                <p class="categoryTitle" onclick="rename(this)">Chest</p>
-                <img src="img/hide.png" alt="hide" class="hideImg">
-            </div>
-
-            <div class="exercise">
-                <img src="img/exercise.png" alt="exercise" class="exerciseImg">
-                <div class="exerciseData">
-                    <div class="exerciseNameBox">
-                        <p class="exerciseName">Name</p>
-                        <img src="img/rename.png" alt="rename" class="renameIcon" onclick="rename(this.parentElement.querySelector('p'))">
-                    </div>
-                    <div class="exerciseValues">
-                        <div class="sets" onclick="rename(this)">0 sets</div>
-                        <div class="reps" onclick="rename(this)"> 0 reps</div>
-                        <div class="weight" onclick="rename(this)">0kg</div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
+        <a href="../Plan/plan.html">
+            <img src="img/back.png" alt="back" id="backArrow">
+        </a>
     </div>
-    
-
+    <div id="addButton" onclick="addCategory()"> <p>+</p> </div>
 </body>
 </html>

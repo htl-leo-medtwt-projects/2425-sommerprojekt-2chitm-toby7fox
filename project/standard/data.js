@@ -27,7 +27,7 @@ var days = [
                         "name": "Shoulderpress",
                         "sets": 2,
                         "weight": 90,
-                        "reps": 5
+                        "reps": 5 
                     },
                     {
                         "name": "Sidelift",
@@ -42,6 +42,35 @@ var days = [
                 "exercises": [
                     {
                         "name": "Shoulderpress",
+                        "sets": 2,
+                        "weight": 90,
+                        "reps": 5
+                    },
+                    {
+                        "name": "Sidelift",
+                        "sets": 2,
+                        "weight": 90,
+                        "reps": 5
+                    },
+                    {
+                        "name": "Sidelift",
+                        "sets": 2,
+                        "weight": 90,
+                        "reps": 5
+                    }
+                ]
+            },
+            {
+                "name": "Bicep",
+                "exercises": [
+                    {
+                        "name": "Shoulderpress",
+                        "sets": 2,
+                        "weight": 90,
+                        "reps": 5
+                    },
+                    {
+                        "name": "Sidelift",
                         "sets": 2,
                         "weight": 90,
                         "reps": 5
@@ -103,6 +132,5 @@ var days = [
 localStorage.setItem("dayId", "");
 function openDay(day){
     localStorage.setItem("dayId", day.querySelector('p').getAttribute("id"));
-    alert(localStorage.getItem("dayId"));
     window.location.href = "../days/day.html";
 }
