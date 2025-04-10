@@ -1,6 +1,7 @@
 //openDay-----------------------------------------------------------
+let number = 0;
 function loadCategorys() {
-    let number = 0;
+    document.getElementById('contentBox').innerHTML = null;
 
     for (let ö = 0; ö < days[number].categorys.length; ö++) {
         document.getElementById('contentBox').innerHTML += `
@@ -39,31 +40,23 @@ function hide(e){
 }
 
 function addExercise(e){
-    e.innerHTML += `
-    <div class="exercise">
-                    <img src="img/exercise.png" alt="exercise" class="exerciseImg">
-                    <div class="exerciseData">
-                        <div class="exerciseNameBox">
-                            <p class="exerciseName">Name</p>
-                            <img src="img/rename.png" alt="rename" class="renameIcon">
-                        </div>
-                        <div class="exerciseValues">
-                            <div class="sets" onclick="rename(this)">0 sets</div>
-                            <div class="reps" onclick="rename(this)">0 reps</div>
-                            <div class="weight" onclick="rename(this)">0kg</div>
-                        </div>
-                    </div>
-                </div>
-                `;
+    days[number].push( //hinzufügen eines Tages zum JSON
+        {
+            "name": "Name",
+            "id": `Name${number}`,
+            "categorys": []
+        }
+    );
 }
 
 function addCategory(){
-    document.getElementById('contentBox').innerHTML += `
-        <div class="categoryBox" id="Name" onclick="addExercise(this)">
-                <div class="categoryTitleBox">
-                    <p class="categoryTitle" onclick="rename(this)">Name</p>
-                    <img src="img/hide.png" alt="hide" class="hideImg" onclick="hide(this)">
-                </div>
-            </div>
-    `;
+    days[number].categorys.push( //hinzufügen eines Tages zum JSON
+        {
+            "name": "Name",
+            "exercises": [
+                
+            ]
+        }
+    );
+    loadCategorys();
 }
