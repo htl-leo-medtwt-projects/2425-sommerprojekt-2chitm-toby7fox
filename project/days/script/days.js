@@ -5,9 +5,9 @@ function loadCategorys() {
 
     for (let ö = 0; ö < days[number].categorys.length; ö++) {
         document.getElementById('contentBox').innerHTML += `
-            <div class="categoryBox" id="${days[number].categorys[ö].name}" onclick="addExercise(this)">
+            <div class="categoryBox" id="${days[number].categorys[ö].name}">
                 <div class="categoryTitleBox">
-                    <p class="categoryTitle" onclick="rename(this)">${days[number].categorys[ö].name}</p>
+                    <p class="categoryTitle" onclick="addExercise(this)">${days[number].categorys[ö].name}</p>
                     <img src="img/hide.png" alt="hide" class="hideImg" onclick="hide(this)">
                 </div>
             </div>
@@ -40,17 +40,24 @@ function hide(e){
 }
 
 function addExercise(e){
-    days[number].push( //hinzufügen eines Tages zum JSON
-        {
-            "name": "Name",
-            "id": `Name${number}`,
-            "categorys": []
+    for(let i = 0; i < days[number].categorys.length; i++){
+        if (days[number].categorys[i].name == e.innerHTML){
+            days[number].categorys[i].exercises.push(
+                {
+                    "name": "Name",
+                    "sets": 0,
+                    "weight": 0,
+                    "reps": 0
+                }
+            );
+            loadCategorys();
+            return;
         }
-    );
+    }
 }
 
 function addCategory(){
-    days[number].categorys.push( //hinzufügen eines Tages zum JSON
+    days[number].categorys.push(
         {
             "name": "Name",
             "exercises": [
