@@ -36,6 +36,23 @@ var days = [
                         "reps": 5
                     }
                 ]
+            },
+            {
+                "name": "Tricep",
+                "exercises": [
+                    {
+                        "name": "Shoulderpress",
+                        "sets": 2,
+                        "weight": 90,
+                        "reps": 5
+                    },
+                    {
+                        "name": "Sidelift",
+                        "sets": 2,
+                        "weight": 90,
+                        "reps": 5
+                    }
+                ]
             }
         ]
     },

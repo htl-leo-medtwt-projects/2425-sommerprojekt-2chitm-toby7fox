@@ -13,8 +13,7 @@
 
 .categoryBox{
     width: 45vh;
-    height: 80.5vh;
-    margin-top: 7vh;
+    margin-top: 5vh;
 }
 
 .categoryTitleBox{
@@ -36,6 +35,8 @@
 .exercise{
     width: 45vh;
     height: 8.5vh;
+
+    margin-bottom: 1.3vh;
 
     background-color: #FF8A65;
     border-radius: 6px;
