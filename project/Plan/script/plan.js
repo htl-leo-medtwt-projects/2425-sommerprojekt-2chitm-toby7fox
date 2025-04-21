@@ -83,12 +83,18 @@ loaddays(); //beim laden der website: alle elemente ladenlocalStorage.setItem("n
 
 
 //option window-----------------------------------------------------
-const lol = document.getElementsByClassName("day");
-for (let i = 0; i < lol.length; i++) {
-    lol[i].addEventListener("contextmenu", function(event) {
+const dayElements = document.getElementsByClassName("day");
+for (let i = 0; i < dayElements.length; i++) {
+    dayElements[i].addEventListener("contextmenu", function(event) {
         event.preventDefault();
+
+        const optionBox = document.getElementById('optionBox');
+        optionBox.style.opacity = 1;
+        optionBox.style.left = event.clientX + 'px';
+        optionBox.style.top = event.clientY + 'px';
     });
 }
+
 
 
 //-------------------------------------------------------------------

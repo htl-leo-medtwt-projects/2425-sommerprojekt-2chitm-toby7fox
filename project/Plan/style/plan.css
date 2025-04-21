@@ -66,6 +66,34 @@
     animation: blink 1s infinite;
   }
 
+#optionBox{
+    background-color: #4C4C4C;
+    box-shadow: 0px 6px 0px #3A3A3A;
+    border-radius: 6px;
+    color: white;
+
+    gap: 1vh;
+     
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    top: 30vh;
+    left: 20vw;
+
+    width: 20vh;
+    height: 10vh;
+
+    opacity: 0;
+}
+
+#delete, #rename{
+    margin: 0;
+    cursor: pointer;
+}
+
 @keyframes blink {
     0% { color: #4C4C4C; }
     10% { color: red; }
