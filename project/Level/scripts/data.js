@@ -6,28 +6,28 @@ var exerciseStats = {
                 {
                     "month": 7,
                     "weeks": [
-                        { "week": 1, "1RM": 106,  "date": "7.2025 Week 1" },
-                        { "week": 2, "1RM": 106.5, "date": "7.2025 Week 2" },
-                        { "week": 3, "1RM": 107,  "date": "7.2025 Week 3" },
-                        { "week": 4, "1RM": 107.5, "date": "7.2025 Week 4" }
+                        { "week": 1, "1RM": 106,  "date": "Juli 2025 Week 1" },
+                        { "week": 2, "1RM": 106.5, "date": "Juli 2025 Week 2" },
+                        { "week": 3, "1RM": 107,  "date": "Juli 2025 Week 3" },
+                        { "week": 4, "1RM": 107.5, "date": "Juli 2025 Week 4" }
                     ]
                 },
                 {
                     "month": 8,
                     "weeks": [
-                        { "week": 1, "1RM": 108,  "date": "8.2025 Week 1" },
-                        { "week": 2, "1RM": 108.5, "date": "8.2025 Week 2" },
-                        { "week": 3, "1RM": 109,  "date": "8.2025 Week 3" },
-                        { "week": 4, "1RM": 109.5, "date": "8.2025 Week 4" }
+                        { "week": 1, "1RM": 108,  "date": "August.2025 Week 1" },
+                        { "week": 2, "1RM": 108.5, "date": "August.2025 Week 2" },
+                        { "week": 3, "1RM": 109,  "date": "August.2025 Week 3" },
+                        { "week": 4, "1RM": 109.5, "date": "August.2025 Week 4" }
                     ]
                 },
                 {
                     "month": 9,
                     "weeks": [
-                        { "week": 1, "1RM": 110,  "date": "9.2025 Week 1" },
-                        { "week": 2, "1RM": 110.5, "date": "9.2025 Week 2" },
-                        { "week": 3, "1RM": 111,  "date": "9.2025 Week 3" },
-                        { "week": 4, "1RM": 111.5, "date": "9.2025 Week 4" }
+                        { "week": 1, "1RM": 110,  "date": "September.2025 Week 1" },
+                        { "week": 2, "1RM": 110.5, "date": "September.2025 Week 2" },
+                        { "week": 3, "1RM": 111,  "date": "September.2025 Week 3" },
+                        { "week": 4, "1RM": 111.5, "date": "September.2025 Week 4" }
                     ]
                 },
                 {
