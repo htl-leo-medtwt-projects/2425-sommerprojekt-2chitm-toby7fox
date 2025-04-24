@@ -10,13 +10,17 @@ var days = [
                         "name": "Benchpress",
                         "sets": 2,
                         "weight": 90,
-                        "reps": 5
+                        "reps": 5,
+                        "rangeLow": 3,
+                        "rangeHigh": 5
                     },
                     {
                         "name": "Dips",
                         "sets": 2,
                         "weight": 90,
-                        "reps": 5
+                        "reps": 5,
+                        "rangeLow": 3,
+                        "rangeHigh": 5
                     }
                 ]
             },
@@ -27,13 +31,17 @@ var days = [
                         "name": "Shoulderpress",
                         "sets": 2,
                         "weight": 90,
-                        "reps": 5 
+                        "reps": 5,
+                        "rangeLow": 3,
+                        "rangeHigh": 5 
                     },
                     {
                         "name": "Sidelift",
                         "sets": 2,
                         "weight": 90,
-                        "reps": 5
+                        "reps": 5,
+                        "rangeLow": 3,
+                        "rangeHigh": 5
                     }
                 ]
             },
@@ -44,19 +52,25 @@ var days = [
                         "name": "Shoulderpress",
                         "sets": 2,
                         "weight": 90,
-                        "reps": 5
+                        "reps": 5,
+                        "rangeLow": 3,
+                        "rangeHigh": 5
                     },
                     {
                         "name": "Sidelift",
                         "sets": 2,
                         "weight": 90,
-                        "reps": 5
+                        "reps": 5,
+                        "rangeLow": 3,
+                        "rangeHigh": 5
                     },
                     {
                         "name": "Sidelift",
                         "sets": 2,
                         "weight": 90,
-                        "reps": 5
+                        "reps": 5,
+                        "rangeLow": 3,
+                        "rangeHigh": 5
                     }
                 ]
             },
@@ -67,19 +81,25 @@ var days = [
                         "name": "Shoulderpress",
                         "sets": 2,
                         "weight": 90,
-                        "reps": 5
+                        "reps": 5,
+                        "rangeLow": 3,
+                        "rangeHigh": 5
                     },
                     {
                         "name": "Sidelift",
                         "sets": 2,
                         "weight": 90,
-                        "reps": 5
+                        "reps": 5,
+                        "rangeLow": 3,
+                        "rangeHigh": 5
                     },
                     {
                         "name": "Sidelift",
                         "sets": 2,
                         "weight": 90,
-                        "reps": 5
+                        "reps": 5,
+                        "rangeLow": 3,
+                        "rangeHigh": 5
                     }
                 ]
             }

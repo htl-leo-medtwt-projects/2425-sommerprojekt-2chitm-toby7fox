@@ -126,15 +126,6 @@ function renameCategory2(e) {
 }
 //---------------------------------------------------------------------------------------------------
 
-function renameExerciseName(e) {
-    category = e.parentElement.parentElement;
-
-    for (let i = 0; i < days[number].categorys.length; i++) {  //Alle Kategorien durchgehen und schauen ob eine mit dem p Elemnte übereinander stimmt
-        if (days[number].categorys[i].name == e.innerHTML) {
-
-        }
-    }
-}
 
 //option window-----------------------------------------------------
 var clickedElement;
