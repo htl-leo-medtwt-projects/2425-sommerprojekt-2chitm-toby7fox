@@ -35,14 +35,14 @@ function loadCategorys() {
 
 loadCategorys();
 
-function hide(e){
-    
+function hide(e) {
+
 }
 
-function addExercise(){
+function addExercise() {
     document.getElementById('optionBox').style.opacity = 0; //Optionbox unsichtbar machen
-    for(let i = 0; i < days[number].categorys.length; i++){  //Alle Kategorien durchgehen und schauen ob eine mit dem p Elemnte übereinander stimmt
-        if (days[number].categorys[i].name == clickedElement.innerHTML){
+    for (let i = 0; i < days[number].categorys.length; i++) {  //Alle Kategorien durchgehen und schauen ob eine mit dem p Elemnte übereinander stimmt
+        if (days[number].categorys[i].name == clickedElement.innerHTML) {
             days[number].categorys[i].exercises.push(
                 {
                     "name": "Name",
@@ -52,40 +52,46 @@ function addExercise(){
                 }
             );
             loadCategorys();
+            addRightClick();
             return;
         }
     }
 }
 
-function deleteCategory(){
+function deleteCategory() {
     document.getElementById('optionBox').style.opacity = 0; //Optionbox unsichtbar machen
 
-    for(let i = 0; i < days[number].categorys.length; i++){  //Alle Kategorien durchgehen und schauen ob eine mit dem p Elemnte übereinander stimmt
-        if (days[number].categorys[i].name == clickedElement.innerHTML){
+    for (let i = 0; i < days[number].categorys.length; i++) {  //Alle Kategorien durchgehen und schauen ob eine mit dem p Elemnte übereinander stimmt
+        if (days[number].categorys[i].name == clickedElement.innerHTML) {
             days[number].categorys.splice(i, 1);
             loadCategorys();
+            addRightClick();
             return;
         }
     }
 }
 
-function addCategory(){  
+function addCategory() {
     days[number].categorys.push(
         {
             "name": "Name",
             "exercises": [
-                
+
             ]
         }
     );
     loadCategorys();
+    addRightClick();
 }
 
 //renameCategory-------------------------------------------------------------------------------------
 let categoryName;
-function renameCategory(){
+function renameCategory() {
     document.getElementById('optionBox').style.opacity = 0; //Optionbox unsichtbar machen
+
+    categoryName = clickedElement.innerHTML;
     clickedElement.innerHTML = `<input class="inputCN" onchange="renameCategory2(this.value)">`;
+    
 
 
     const newInput = clickedElement.querySelector('input'); //Fokus im Input Feld setzen
@@ -94,9 +100,10 @@ function renameCategory(){
     }, 0);
 }
 
-function renameCategory2(e){
+function renameCategory2(e) {
     if (e == "") { //wenn der input lehr ist: alles reseten
         loadCategorys();
+        addRightClick();
         return;
     }
 
@@ -108,43 +115,46 @@ function renameCategory2(e){
     }
 
     for (let i = 0; i < days[number].categorys.length; i++) {
-        if (days[number].categorys[i].id == categoryName) {  //wenn die Stelle im JSON mit dem alten p value übereinstimmt
+        if (days[number].categorys[i].name == categoryName) {  //wenn die Stelle im JSON mit dem alten p value übereinstimmt
             days[number].categorys[i].name = e;
-            days[number].categorys[i].id = e + n;
             localStorage.setItem("data", JSON.stringify(days)); //days in Localstorage speichern
             loadCategorys();
+            addRightClick();
             return;
         }
     }
 }
 //---------------------------------------------------------------------------------------------------
 
-function renameExerciseName(e){
+function renameExerciseName(e) {
     category = e.parentElement.parentElement;
 
-    for(let i = 0; i < days[number].categorys.length; i++){  //Alle Kategorien durchgehen und schauen ob eine mit dem p Elemnte übereinander stimmt
-        if (days[number].categorys[i].name == e.innerHTML){
-            
+    for (let i = 0; i < days[number].categorys.length; i++) {  //Alle Kategorien durchgehen und schauen ob eine mit dem p Elemnte übereinander stimmt
+        if (days[number].categorys[i].name == e.innerHTML) {
+
         }
     }
 }
 
 //option window-----------------------------------------------------
 var clickedElement;
-const dayElements = document.getElementsByClassName("categoryTitle");
-for (let i = 0; i < dayElements.length; i++) {
-    dayElements[i].addEventListener("contextmenu", function(event) {
-        event.preventDefault(); //Das Fenster verhindern was normalerweise bei Rechtsklick generiert wird
+function addRightClick() {
+    const dayElements = document.getElementsByClassName("categoryTitle");
+    for (let i = 0; i < dayElements.length; i++) {
+        dayElements[i].addEventListener("contextmenu", function (event) {
+            event.preventDefault(); //Das Fenster verhindern was normalerweise bei Rechtsklick generiert wird
 
-        clickedElement = event.currentTarget;
-        console.log(clickedElement);
-        
+            clickedElement = event.currentTarget;
+            console.log(clickedElement);
 
-        document.getElementById('optionBox').style.opacity = 1; //Optionbox Sichtbar machen
-        optionBox.style.left = event.clientX + 'px'; //Optionbox an Mausposition anpassen
-        optionBox.style.top = event.clientY + 'px';
-    });
+
+            document.getElementById('optionBox').style.opacity = 1; //Optionbox Sichtbar machen
+            optionBox.style.left = event.clientX + 'px'; //Optionbox an Mausposition anpassen
+            optionBox.style.top = event.clientY + 'px';
+        });
+    }
 }
+addRightClick();
 //-------------------------------------------------------------------
 
 

@@ -16,6 +16,7 @@ function addDay() {
     );
     localStorage.setItem("data", JSON.stringify(days)); //days in Localstorage speichern
     loaddays(); //neu laden
+    addRightClick();
 }
 //--------------------------------------------------------------------------------
 
@@ -39,6 +40,7 @@ function rename() {
 function rename2(e) {  //DOPELLTE ÜBERPRÜFEN
     if (e == "") { //wenn der input lehr ist: alles reseten
         loaddays();
+        
         return;
     }
 
@@ -55,6 +57,7 @@ function rename2(e) {  //DOPELLTE ÜBERPRÜFEN
             days[i].id = e + number;
             localStorage.setItem("data", JSON.stringify(days)); //days in Localstorage speichern
             loaddays();
+            addRightClick();
             return;
         }
     }
@@ -74,6 +77,7 @@ function deleteItem(){
             days.splice(i, 1);
             localStorage.setItem("data", JSON.stringify(days)); //days in Localstorage speichern
             loaddays();
+            addRightClick();
             return;
         }
     }
@@ -100,21 +104,23 @@ loaddays(); //beim laden der website: alle elemente ladenlocalStorage.setItem("n
 
 //option window-----------------------------------------------------
 var clickedElement;
-const dayElements = document.getElementsByClassName("day");
-for (let i = 0; i < dayElements.length; i++) {
-    dayElements[i].addEventListener("contextmenu", function(event) {
-        event.preventDefault(); //Das Fenster verhindern was normalerweise bei Rechtsklick generiert wird
+function addRightClick(){
+    const dayElements = document.getElementsByClassName("day");
+    for (let i = 0; i < dayElements.length; i++) {
+        dayElements[i].addEventListener("contextmenu", function(event) {
+            event.preventDefault(); //Das Fenster verhindern was normalerweise bei Rechtsklick generiert wird
 
-        clickedElement = event.currentTarget;
-        console.log(clickedElement);
-        
+            clickedElement = event.currentTarget;
+            console.log(clickedElement);
+            
 
-        document.getElementById('optionBox').style.opacity = 1; //Optionbox Sichtbar machen
-        optionBox.style.left = event.clientX + 'px'; //Optionbox an Mausposition anpassen
-        optionBox.style.top = event.clientY + 'px';
-    });
+            document.getElementById('optionBox').style.opacity = 1; //Optionbox Sichtbar machen
+            optionBox.style.left = event.clientX + 'px'; //Optionbox an Mausposition anpassen
+            optionBox.style.top = event.clientY + 'px';
+        });
+    }
 }
-
+addRightClick();
 
 
 //-------------------------------------------------------------------
