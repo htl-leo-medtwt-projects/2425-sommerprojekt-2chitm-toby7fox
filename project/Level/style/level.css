@@ -1,6 +1,7 @@
 body{
     display: flex;
     justify-content: center;
+    font-family: "Poppins", sans-serif;
 }
 
 #chartScroll {
@@ -13,4 +14,11 @@ body{
 
     margin-left: 1vh;
 
+}
+
+
+.poppins-medium {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
 }

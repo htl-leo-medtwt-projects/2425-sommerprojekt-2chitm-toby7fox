@@ -7,7 +7,7 @@ function loadCategorys() {
         document.getElementById('contentBox').innerHTML += `
             <div class="categoryBox" id="${days[number].categorys[ö].name}">
                 <div class="categoryTitleBox">
-                    <p class="categoryTitle" onclick="addExercise(this)">${days[number].categorys[ö].name}</p>
+                    <p class="categoryTitle">${days[number].categorys[ö].name}</p>
                     <img src="img/hide.png" class="hideImg" onclick="hide(this)">
                 </div>
             </div>
@@ -39,9 +39,10 @@ function hide(e){
     
 }
 
-function addExercise(e){
+function addExercise(){
+    document.getElementById('optionBox').style.opacity = 0; //Optionbox unsichtbar machen
     for(let i = 0; i < days[number].categorys.length; i++){  //Alle Kategorien durchgehen und schauen ob eine mit dem p Elemnte übereinander stimmt
-        if (days[number].categorys[i].name == e.innerHTML){
+        if (days[number].categorys[i].name == clickedElement.innerHTML){
             days[number].categorys[i].exercises.push(
                 {
                     "name": "Name",
@@ -50,6 +51,18 @@ function addExercise(e){
                     "reps": 0
                 }
             );
+            loadCategorys();
+            return;
+        }
+    }
+}
+
+function deleteCategory(){
+    document.getElementById('optionBox').style.opacity = 0; //Optionbox unsichtbar machen
+
+    for(let i = 0; i < days[number].categorys.length; i++){  //Alle Kategorien durchgehen und schauen ob eine mit dem p Elemnte übereinander stimmt
+        if (days[number].categorys[i].name == clickedElement.innerHTML){
+            days[number].categorys.splice(i, 1);
             loadCategorys();
             return;
         }
@@ -68,6 +81,44 @@ function addCategory(){
     loadCategorys();
 }
 
+//renameCategory-------------------------------------------------------------------------------------
+let categoryName;
+function renameCategory(){
+    document.getElementById('optionBox').style.opacity = 0; //Optionbox unsichtbar machen
+    clickedElement.innerHTML = `<input class="inputCN" onchange="renameCategory2(this.value)">`;
+
+
+    const newInput = clickedElement.querySelector('input'); //Fokus im Input Feld setzen
+    setTimeout(() => {
+        newInput.focus();
+    }, 0);
+}
+
+function renameCategory2(e){
+    if (e == "") { //wenn der input lehr ist: alles reseten
+        loadCategorys();
+        return;
+    }
+
+    let n = 1;
+    for (let h = 0; h < days[number].categorys.length; h++) { //nachzählen wie viele gleichnamige es gibt
+        if (e == days[number].categorys[h].name) {
+            n++;
+        }
+    }
+
+    for (let i = 0; i < days[number].categorys.length; i++) {
+        if (days[number].categorys[i].id == categoryName) {  //wenn die Stelle im JSON mit dem alten p value übereinstimmt
+            days[number].categorys[i].name = e;
+            days[number].categorys[i].id = e + n;
+            localStorage.setItem("data", JSON.stringify(days)); //days in Localstorage speichern
+            loadCategorys();
+            return;
+        }
+    }
+}
+//---------------------------------------------------------------------------------------------------
+
 function renameExerciseName(e){
     category = e.parentElement.parentElement;
 
@@ -77,6 +128,24 @@ function renameExerciseName(e){
         }
     }
 }
+
+//option window-----------------------------------------------------
+var clickedElement;
+const dayElements = document.getElementsByClassName("categoryTitle");
+for (let i = 0; i < dayElements.length; i++) {
+    dayElements[i].addEventListener("contextmenu", function(event) {
+        event.preventDefault(); //Das Fenster verhindern was normalerweise bei Rechtsklick generiert wird
+
+        clickedElement = event.currentTarget;
+        console.log(clickedElement);
+        
+
+        document.getElementById('optionBox').style.opacity = 1; //Optionbox Sichtbar machen
+        optionBox.style.left = event.clientX + 'px'; //Optionbox an Mausposition anpassen
+        optionBox.style.top = event.clientY + 'px';
+    });
+}
+//-------------------------------------------------------------------
 
 
 //TODO:

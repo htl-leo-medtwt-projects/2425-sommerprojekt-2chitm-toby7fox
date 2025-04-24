@@ -22,15 +22,15 @@ function addDay() {
 
 //rename-progress ------------------------------------------------------------
 let dayName;
-function rename(e) {
-    event.stopPropagation(); //laden der Übungen stopen
+function rename() {
 
-    dayName = e.getAttribute("id"); //das p-Element abspeichern
-    e.innerHTML = `<input onchange="rename2(this.value)" onblur="rename2(this.value)" class="inputCN">`; //input feld generieren
+    dayName = clickedElement.querySelector('p').getAttribute("id"); //das p-Element abspeichern
+    document.getElementById('optionBox').style.opacity = 0; //Optionbox unsichtbar machen
+    clickedElement.querySelector('p').innerHTML = `<input onchange="rename2(this.value)" onblur="rename2(this.value)" class="inputCN">`; //input feld generieren
 
 
 
-    const newInput = e.querySelector('input'); //Fokus im Input Feld setzen
+    const newInput = clickedElement.querySelector('p').querySelector('input'); //Fokus im Input Feld setzen
     setTimeout(() => {
         newInput.focus();
     }, 0);
@@ -63,13 +63,29 @@ function rename2(e) {  //DOPELLTE ÜBERPRÜFEN
 }
 //------------------------------------------------------------------------------
 
+//delete-function----------------------------------
+let deletionDayName;
+function deleteItem(){
+    deletionDayName = dayName = clickedElement.querySelector('p').getAttribute("id");
+    document.getElementById('optionBox').style.opacity = 0; //Optionbox unsichtbar machen
+
+    for (let i = 0; i < days.length; i++) {
+        if (days[i].id == dayName) {  //wenn die Stelle im JSON mit dem alten p value übereinstimmt
+            days.splice(i, 1);
+            localStorage.setItem("data", JSON.stringify(days)); //days in Localstorage speichern
+            loaddays();
+            return;
+        }
+    }
+}
+
 //lade-funktion -------------------------------------------
 function loaddays() {
     document.getElementById('contentBox').innerHTML = ""; //alles reseten
     for (let i = 0; i < days.length; i++) {  //neu laden
         document.getElementById('contentBox').innerHTML += `
         <div class="day" onclick="openDay(this)">
-            <p class="dayName" onclick="rename(this)" id="${days[i].id}">${days[i].name}</p>
+            <p class="dayName" id="${days[i].id}">${days[i].name}</p>
         </div>
     `;
     }
@@ -83,14 +99,18 @@ loaddays(); //beim laden der website: alle elemente ladenlocalStorage.setItem("n
 
 
 //option window-----------------------------------------------------
+var clickedElement;
 const dayElements = document.getElementsByClassName("day");
 for (let i = 0; i < dayElements.length; i++) {
     dayElements[i].addEventListener("contextmenu", function(event) {
-        event.preventDefault();
+        event.preventDefault(); //Das Fenster verhindern was normalerweise bei Rechtsklick generiert wird
 
-        const optionBox = document.getElementById('optionBox');
-        optionBox.style.opacity = 1;
-        optionBox.style.left = event.clientX + 'px';
+        clickedElement = event.currentTarget;
+        console.log(clickedElement);
+        
+
+        document.getElementById('optionBox').style.opacity = 1; //Optionbox Sichtbar machen
+        optionBox.style.left = event.clientX + 'px'; //Optionbox an Mausposition anpassen
         optionBox.style.top = event.clientY + 'px';
     });
 }
