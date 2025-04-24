@@ -1,4 +1,8 @@
 
+body{
+    user-select: none;
+}
+
 #contentBox{
     display: flex;
     justify-content: start;
