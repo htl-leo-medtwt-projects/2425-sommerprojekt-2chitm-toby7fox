@@ -14,20 +14,18 @@ function loadCategorys() {
         `;
         for (let ä = 0; ä < days[number].categorys[ö].exercises.length; ä++) { //In der Kategorie werden auch direkt alle Exercises geladen
             document.getElementById(days[number].categorys[ö].name).innerHTML += `
+            <div class="extendetExerciseBox" onclick="extendExercise(this)">
                 <div class="exercise">
                     <img src="img/exercise.png" alt="exercise" class="exerciseImg">
                     <div class="exerciseData">
                         <div class="exerciseNameBox">
                             <p class="exerciseName">${days[number].categorys[ö].exercises[ä].name}</p>
-                            <img src="img/rename.png" alt="rename" class="renameIcon">
                         </div>
-                        <div class="exerciseValues">
-                            <div class="sets" onclick="rename(this)">${days[number].categorys[ö].exercises[ä].sets} sets</div>
-                            <div class="reps" onclick="rename(this)">${days[number].categorys[ö].exercises[ä].reps} reps</div>
-                            <div class="weight" onclick="rename(this)">${days[number].categorys[ö].exercises[ä].weight}kg</div>
-                        </div>
+                        <div class="exerciseValues">${days[number].categorys[ö].exercises[ä].sets} sets / ${days[number].categorys[ö].exercises[ä].reps} reps / ${days[number].categorys[ö].exercises[ä].weight}kg</div>
+                        
                     </div>
                 </div>
+            </div>
             `;
         }
     }
@@ -35,9 +33,68 @@ function loadCategorys() {
 
 loadCategorys();
 
-function hide(e) {
-
+function extendExercise(e){
+    let exerciseName = e.querySelector('.exerciseName').innerHTML;
+    
+    for(let i = 0; i < days[number].categorys.length; i++){
+        for(let k = 0; k < days[number].categorys[i].exercises.length; k++){
+            if (days[number].categorys[i].exercises[i].name == exerciseName){
+                e.innerHTML = `
+                
+                
+                <div class="exercise">
+                    <img src="img/exercise.png" alt="exercise" class="exerciseImg">
+                    <div class="exerciseData">
+                        <div class="exerciseNameBox">
+                            <p class="exerciseName">${days[number].categorys[i].exercises[i].name}</p>
+                        </div>
+                        <div class="exerciseValues">${days[number].categorys[i].exercises[i].sets} sets / ${days[number].categorys[i].exercises[i].reps} reps / ${days[number].categorys[i].exercises[i].weight}kg</div>
+                    </div>
+                </div>
+                <div class="exerciseInfoBox">
+                    <div class="nameInfoBox">
+                        <p class="nameInfo1">Name :</p>
+                        <div class="nameInfo2">${days[number].categorys[i].exercises[i].name}</div>
+                    </div>
+                    <div class="countInfoBox">
+                        <div class="setsInfoBox">
+                            <p class="setsInfo1">sets :</p>
+                            <div class="setsInfo2">${days[number].categorys[i].exercises[i].sets}</div>
+                        </div>
+                        <div class="repsInfoBox">
+                            <p class="repsInfo1">reps :</p>
+                            <div class="repsInfo2">${days[number].categorys[i].exercises[i].reps}</div>
+                        </div>
+                    </div>
+                    <div class="weightsInfoBox">
+                        <div class="weightInfoBox">
+                            <p class="weightInfo1">weight :</p>
+                            <div class="weightInfo2">${days[number].categorys[i].exercises[i].weight}kg</div>
+                        </div>
+                        <div class="rmInfoBox">
+                            <p class="rmInfo1">1RM :</p>
+                            <div class="rmInfo2">error</div>
+                        </div>
+                    </div>
+                    <div class="poInfoBox">
+                        <div class="repRInfoBox">
+                            <p class="repRInfo1">rep.r :</p>
+                            <div class="repRInfo2">${days[number].categorys[i].exercises[i].rangeLow}-${days[number].categorys[i].exercises[i].rangeHigh}</div>
+                        </div>
+                        <div class="nweightInfoBox">
+                            <p class="nweightInfo1">n.weight :</p>
+                            <div class="nweightInfo2">error</div>
+                        </div>
+                    </div>
+                </div>
+                
+                `;
+                return;
+            }
+        }
+    }
 }
+
 
 function addExercise() {
     document.getElementById('optionBox').style.opacity = 0; //Optionbox unsichtbar machen
@@ -148,6 +205,9 @@ function addRightClick() {
 addRightClick();
 //-------------------------------------------------------------------
 
+function hide(){
+    
+}
 
 //TODO:
 //Dopellte Namen

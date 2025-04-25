@@ -38,104 +38,9 @@ body{
     cursor: pointer;
 }
 
-.exercise{
-    width: 45vh;
-    height: 8.5vh;
-
-    margin-bottom: 1.3vh;
-
-    background-color: #FF8A65;
-    border-radius: 6px;
-    box-shadow: 0px 6px 0px #C66B4E;
-
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.exerciseImg {
-    width: 6vh;
-    height: 6vh;
-
-    margin: 1vh;
-    margin-right: 3vh;
-    margin-left: 2vh;
-}
-
-.exerciseData {
-    display: flex;
-    flex-direction: column;
-
-    height: 8.5vh;
-
-    justify-content: center;
-}
-
-.exerciseNameBox {
-    display: flex;
-    flex-direction: row;
-
-    align-items: baseline;
-}
-
-.exerciseName {
-    margin: 0;
-    margin-right: 1vh;
-    color: white;
-    font-size: 2.5vh;
-}
-
-.renameIcon {
-    width: 1.5vh;
-    height: 1.5vh;
-}
-
-.exerciseValues {
-    display: flex;
-    flex-direction: row;
-}
-
-.sets, .reps, .weight{
-    color: #4C4C4C;
-    background-color: white;
-    margin-right: 1vh;
-
-    padding: 0.2vh;
-    padding-right: 0.6vh;
-    padding-left: 0.6vh;
-
-    border-radius: 6px;
-
-    font-size: 1.5vh;
-
-    width: 5vh;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .inputCN{
     font-size: 2.5vh;
     width: 16vh;
-    border: none;
-    text-align: center;
-    outline: none;
-}
-
-.inputEN{
-    font-size: 2.5vh;
-    width: 16vh;
-    border: none;
-    text-align: center;
-    outline: none;
-
-    background-color: #FF8A65;
-}
-
-.inputVN{
-    font-size: 1.5vh;
-    width: 5vh;
     border: none;
     text-align: center;
     outline: none;
@@ -193,3 +98,5 @@ body{
     margin: 0;
     cursor: pointer;
 }
+
+

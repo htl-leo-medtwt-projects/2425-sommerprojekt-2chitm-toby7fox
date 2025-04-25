@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="../standard/standard.css">
     <link rel="stylesheet" href="style/day.css">
+    <link rel="stylesheet" href="style/exercise.css">
 
     <script src="../standard/data.js" defer></script>
     <script src="../standard/header_footer.js" defer></script>
@@ -17,7 +18,66 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="contentBox"></div>
+    <div id="contentBox">
+
+        <div class="categoryBox" id="${days[number].categorys[ö].name}">
+            <div class="categoryTitleBox">
+                <p class="categoryTitle">Push</p>
+                <img src="img/hide.png" class="hideImg" onclick="hide(this)">
+            </div>
+
+            <div class="extendetExerciseBox">
+                <div class="exercise" onclick="ichgebedieboxmit(this)">
+                    <img src="img/exercise.png" alt="exercise" class="exerciseImg">
+                    <div class="exerciseData">
+                        <div class="exerciseNameBox">
+                            <p class="exerciseName">Benchpress</p>
+                        </div>
+                        <div class="exerciseValues">2 sets / 3 reps / 90kg</div>
+                    </div>
+                </div>
+                <div class="exerciseInfoBox">
+                    <div class="nameInfoBox">
+                        <p class="nameInfo1">Name :</p>
+                        <div class="nameInfo2">Shoulderpress</div>
+                    </div>
+                    <div class="countInfoBox">
+                        <div class="setsInfoBox">
+                            <p class="setsInfo1">sets :</p>
+                            <div class="setsInfo2">3</div>
+                        </div>
+                        <div class="repsInfoBox">
+                            <p class="repsInfo1">reps :</p>
+                            <div class="repsInfo2">7</div>
+                        </div>
+                    </div>
+                    <div class="weightsInfoBox">
+                        <div class="weightInfoBox">
+                            <p class="weightInfo1">weight :</p>
+                            <div class="weightInfo2">70kg</div>
+                        </div>
+                        <div class="rmInfoBox">
+                            <p class="rmInfo1">1RM :</p>
+                            <div class="rmInfo2">90kg</div>
+                        </div>
+                    </div>
+                    <div class="poInfoBox">
+                        <div class="repRInfoBox">
+                            <p class="repRInfo1">rep.r :</p>
+                            <div class="repRInfo2">6-8</div>
+                        </div>
+                        <div class="nweightInfoBox">
+                            <p class="nweightInfo1">n.weight :</p>
+                            <div class="nweightInfo2">70kg</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+        </div>
+
+    </div>
     <a href="../Plan/plan.html">
         <img src="img/back.png" alt="back" id="backArrow">
     </a>
