@@ -33,11 +33,17 @@ function loadCategorys() {
 
 loadCategorys();
 
+
 function extendExercise(e){
     let exerciseName = e.querySelector('.exerciseName').innerHTML;
     
     for(let i = 0; i < days[number].categorys.length; i++){
         for(let k = 0; k < days[number].categorys[i].exercises.length; k++){
+            console.log(days[number].categorys[i].exercises[i].name);
+            console.log("i: " + i + "k: " + k);
+            console.log("----------------------------------");
+            
+            
             if (days[number].categorys[i].exercises[i].name == exerciseName){
                 e.innerHTML = `
                 
@@ -205,8 +211,20 @@ function addRightClick() {
 addRightClick();
 //-------------------------------------------------------------------
 
-function hide(){
-    
+function hide(e){
+    if (!e.style.transform || e.style.transform == "none") {
+        e.style.transform = "rotate(90deg)";
+        const boxes = e.parentElement.parentElement.querySelectorAll('.extendetExerciseBox');
+        boxes.forEach(box => {
+            box.style.display = "none";
+        });
+    } else if (e.style.transform == "rotate(90deg)") {
+        e.style.transform = "none";
+        const boxes = e.parentElement.parentElement.querySelectorAll('.extendetExerciseBox');
+        boxes.forEach(box => {
+            box.style.display = "block";
+        });
+    }
 }
 
 //TODO:
