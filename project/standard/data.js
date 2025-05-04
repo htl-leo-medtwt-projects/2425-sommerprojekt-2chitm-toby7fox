@@ -24,93 +24,17 @@ var days = [
                     }
                 ]
             },
-            {
-                "name": "Shoulder",
-                "exercises": [
-                    {
-                        "name": "Shoulderpress",
-                        "sets": 2,
-                        "weight": 90,
-                        "reps": 5,
-                        "rangeLow": 3,
-                        "rangeHigh": 5 
-                    },
-                    {
-                        "name": "Sidelift",
-                        "sets": 2,
-                        "weight": 90,
-                        "reps": 5,
-                        "rangeLow": 3,
-                        "rangeHigh": 5
-                    }
-                ]
-            },
-            {
-                "name": "Tricep",
-                "exercises": [
-                    {
-                        "name": "Shoulderpress",
-                        "sets": 2,
-                        "weight": 90,
-                        "reps": 5,
-                        "rangeLow": 3,
-                        "rangeHigh": 5
-                    },
-                    {
-                        "name": "Sidelift",
-                        "sets": 2,
-                        "weight": 90,
-                        "reps": 5,
-                        "rangeLow": 3,
-                        "rangeHigh": 5
-                    },
-                    {
-                        "name": "Sidelift",
-                        "sets": 2,
-                        "weight": 90,
-                        "reps": 5,
-                        "rangeLow": 3,
-                        "rangeHigh": 5
-                    }
-                ]
-            },
-            {
-                "name": "Bicep",
-                "exercises": [
-                    {
-                        "name": "Shoulderpress",
-                        "sets": 2,
-                        "weight": 90,
-                        "reps": 5,
-                        "rangeLow": 3,
-                        "rangeHigh": 5
-                    },
-                    {
-                        "name": "Sidelift",
-                        "sets": 2,
-                        "weight": 90,
-                        "reps": 5,
-                        "rangeLow": 3,
-                        "rangeHigh": 5
-                    },
-                    {
-                        "name": "Sidelift",
-                        "sets": 2,
-                        "weight": 90,
-                        "reps": 5,
-                        "rangeLow": 3,
-                        "rangeHigh": 5
-                    }
-                ]
-            }
         ]
     }
 ]
 
 
 //openDay-----------------------------------------------------------
-localStorage.setItem("dayId", "");
 function openDay(day){
-    localStorage.setItem("dayId", day.querySelector('p').getAttribute("id"));
-    window.location.href = "../days/day.html";
+    for (let i = 0; i < days.length; i++) {
+        if (days[i].id == day.querySelector('p').getAttribute("id")){
+            localStorage.setItem("dayNumber", i);
+        }
+    }
+    window.location.href = "day.html";
 }

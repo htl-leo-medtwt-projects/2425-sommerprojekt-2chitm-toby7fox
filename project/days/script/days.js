@@ -1,5 +1,6 @@
-//openDay-----------------------------------------------------------
-let number = 0;
+let number = localStorage.getItem("dayNumber");
+days = JSON.parse(localStorage.getItem("data") ?? days);
+
 function loadCategorys() {
     document.getElementById('contentBox').innerHTML = null; //HTML reseten
 
@@ -8,7 +9,7 @@ function loadCategorys() {
             <div class="categoryBox" id="${days[number].categorys[ö].name}">
                 <div class="categoryTitleBox">
                     <p class="categoryTitle">${days[number].categorys[ö].name}</p>
-                    <img src="img/hide.png" class="hideImg" onclick="hide(this)">
+                    <img src="days/img/hide.png" class="hideImg" onclick="hide(this)">
                 </div>
             </div>
         `;
@@ -16,7 +17,7 @@ function loadCategorys() {
             document.getElementById(days[number].categorys[ö].name).innerHTML += `
             <div class="extendetExerciseBox" onclick="extendExercise(this)">
                 <div class="exercise">
-                    <img src="img/exercise.png" alt="exercise" class="exerciseImg">
+                    <img src="days/img/exercise.png" alt="exercise" class="exerciseImg">
                     <div class="exerciseData">
                         <div class="exerciseNameBox">
                             <p class="exerciseName">${days[number].categorys[ö].exercises[ä].name}</p>
@@ -40,16 +41,13 @@ function extendExercise(e){
     for(let i = 0; i < days[number].categorys.length; i++){
         for(let k = 0; k < days[number].categorys[i].exercises.length; k++){
             console.log(days[number].categorys[i].exercises[i].name);
-            console.log("i: " + i + "k: " + k);
-            console.log("----------------------------------");
             
             
             if (days[number].categorys[i].exercises[i].name == exerciseName){
                 e.innerHTML = `
                 
-                
                 <div class="exercise">
-                    <img src="img/exercise.png" alt="exercise" class="exerciseImg">
+                    <img src="days/img/exercise.png" alt="exercise" class="exerciseImg">
                     <div class="exerciseData">
                         <div class="exerciseNameBox">
                             <p class="exerciseName">${days[number].categorys[i].exercises[i].name}</p>
@@ -111,9 +109,12 @@ function addExercise() {
                     "name": "Name",
                     "sets": 0,
                     "weight": 0,
-                    "reps": 0
+                    "reps": 0,
+                    "rangeLow": 0,
+                    "rangeHigh": 0
                 }
             );
+            localStorage.setItem("data", JSON.stringify(days)); //days in Localstorage speichern
             loadCategorys();
             addRightClick();
             return;
@@ -127,6 +128,7 @@ function deleteCategory() {
     for (let i = 0; i < days[number].categorys.length; i++) {  //Alle Kategorien durchgehen und schauen ob eine mit dem p Elemnte übereinander stimmt
         if (days[number].categorys[i].name == clickedElement.innerHTML) {
             days[number].categorys.splice(i, 1);
+            localStorage.setItem("data", JSON.stringify(days)); //days in Localstorage speichern
             loadCategorys();
             addRightClick();
             return;
@@ -143,6 +145,7 @@ function addCategory() {
             ]
         }
     );
+    localStorage.setItem("data", JSON.stringify(days)); //days in Localstorage speichern
     loadCategorys();
     addRightClick();
 }
