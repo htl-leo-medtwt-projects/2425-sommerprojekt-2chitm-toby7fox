@@ -36,6 +36,7 @@ loadCategorys();
 
 
 function extendExercise(e){
+    
     let exerciseName = e.querySelector('.exerciseName').innerHTML;
     
     for(let i = 0; i < days[number].categorys.length; i++){
@@ -58,22 +59,22 @@ function extendExercise(e){
                 <div class="exerciseInfoBox">
                     <div class="nameInfoBox">
                         <p class="nameInfo1">Name :</p>
-                        <div class="nameInfo2">${days[number].categorys[i].exercises[i].name}</div>
+                        <p class="nameInfo2" onclick="renameExerciseName(this)">${days[number].categorys[i].exercises[i].name}</p>
                     </div>
                     <div class="countInfoBox">
                         <div class="setsInfoBox">
                             <p class="setsInfo1">sets :</p>
-                            <div class="setsInfo2">${days[number].categorys[i].exercises[i].sets}</div>
+                            <div class="setsInfo2" onclick="renameExerciseName(this)">${days[number].categorys[i].exercises[i].sets}</div>
                         </div>
                         <div class="repsInfoBox">
                             <p class="repsInfo1">reps :</p>
-                            <div class="repsInfo2">${days[number].categorys[i].exercises[i].reps}</div>
+                            <div class="repsInfo2" onclick="renameExerciseName(this)">${days[number].categorys[i].exercises[i].reps}</div>
                         </div>
                     </div>
                     <div class="weightsInfoBox">
                         <div class="weightInfoBox">
                             <p class="weightInfo1">weight :</p>
-                            <div class="weightInfo2">${days[number].categorys[i].exercises[i].weight}kg</div>
+                            <div class="weightInfo2" onclick="renameExerciseName(this)">${days[number].categorys[i].exercises[i].weight}kg</div>
                         </div>
                         <div class="rmInfoBox">
                             <p class="rmInfo1">1RM :</p>
@@ -83,7 +84,7 @@ function extendExercise(e){
                     <div class="poInfoBox">
                         <div class="repRInfoBox">
                             <p class="repRInfo1">rep.r :</p>
-                            <div class="repRInfo2">${days[number].categorys[i].exercises[i].rangeLow}-${days[number].categorys[i].exercises[i].rangeHigh}</div>
+                            <div class="repRInfo2" onclick="renameExerciseName(this)">${days[number].categorys[i].exercises[i].rangeLow}-${days[number].categorys[i].exercises[i].rangeHigh}</div>
                         </div>
                         <div class="nweightInfoBox">
                             <p class="nweightInfo1">n.weight :</p>
@@ -101,7 +102,7 @@ function extendExercise(e){
 
 
 function addExercise() {
-    document.getElementById('optionBox').style.opacity = 0; //Optionbox unsichtbar machen
+    document.getElementById('optionBox').style.display = "none"; //Optionbox unsichtbar machen
     for (let i = 0; i < days[number].categorys.length; i++) {  //Alle Kategorien durchgehen und schauen ob eine mit dem p Elemnte übereinander stimmt
         if (days[number].categorys[i].name == clickedElement.innerHTML) {
             days[number].categorys[i].exercises.push(
@@ -123,7 +124,7 @@ function addExercise() {
 }
 
 function deleteCategory() {
-    document.getElementById('optionBox').style.opacity = 0; //Optionbox unsichtbar machen
+    document.getElementById('optionBox').style.display = "none"; //Optionbox unsichtbar machen
 
     for (let i = 0; i < days[number].categorys.length; i++) {  //Alle Kategorien durchgehen und schauen ob eine mit dem p Elemnte übereinander stimmt
         if (days[number].categorys[i].name == clickedElement.innerHTML) {
@@ -153,7 +154,7 @@ function addCategory() {
 //renameCategory-------------------------------------------------------------------------------------
 let categoryName;
 function renameCategory() {
-    document.getElementById('optionBox').style.opacity = 0; //Optionbox unsichtbar machen
+    document.getElementById('optionBox').style.display = "none"; //Optionbox unsichtbar machen
 
     categoryName = clickedElement.innerHTML;
     clickedElement.innerHTML = `<input class="inputCN" onchange="renameCategory2(this.value)">`;
@@ -205,7 +206,7 @@ function addRightClick() {
             console.log(clickedElement);
 
 
-            document.getElementById('optionBox').style.opacity = 1; //Optionbox Sichtbar machen
+            document.getElementById('optionBox').style.display = "flex"; //Optionbox Sichtbar machen
             optionBox.style.left = event.clientX + 'px'; //Optionbox an Mausposition anpassen
             optionBox.style.top = event.clientY + 'px';
         });
@@ -214,6 +215,8 @@ function addRightClick() {
 addRightClick();
 //-------------------------------------------------------------------
 
+
+//hide Funktion ----------------------------------------------------------------------------------------
 function hide(e){
     if (!e.style.transform || e.style.transform == "none") {
         e.style.transform = "rotate(90deg)";
@@ -229,6 +232,32 @@ function hide(e){
         });
     }
 }
+//--------------------------------------------------------------------------------------------------------
+
+//rename Dinger für die Exercises--------------------------------------------------------------------------------------------
+let ExerciseName;
+let ExerciseInfoBox2;
+let lol;
+function renameExerciseName(e){
+    event.stopPropagation();
+
+    ExerciseName = e.innerHTML;
+    ExerciseInfoBox2 = e;
+    e.innerHTML = `<input class="nameInfoRename" onchange="renameExerciseName2(this.value)">`;
+    lol = e;
+
+    const newInput = e.querySelector('input'); //Fokus im Input Feld setzen
+    setTimeout(() => {
+        newInput.focus();
+    }, 0);
+}
+
+function renameExerciseName2(e){
+    lol.innerHTML = `
+        <p class="nameInfo2" onclick="renameExerciseName(this)">${e}</p>
+    `;
+}
+//----------------------------------------------------------------------------------------------------------------------------
 
 //TODO:
 //Dopellte Namen

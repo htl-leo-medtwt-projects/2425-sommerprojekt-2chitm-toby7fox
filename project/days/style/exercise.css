@@ -176,6 +176,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    cursor: pointer;
 }
 
 .nameInfo2{
@@ -185,4 +187,5 @@
 .nweightInfo2, .rmInfo2{
     background-color: transparent;
     color: white;
+    cursor: auto;
 }

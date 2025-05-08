@@ -4,12 +4,7 @@ document.body.innerHTML += `
             <img src="../standard/img/home.png" alt="home" class="headerImg">
         </a>
         <div id="headerText">
-            <p id="headerTitel">Trainingsplan</p>
-            <p id="headerDate">today</p>
-        </div>
-        <img src="../standard/img/calender.png" alt="calender" class="headerImg">
-        <div id="userBox">
-            <img src="../standard/img/user.png" alt="user" id="userImg">
+            <p id="headerTitel" onclick="renameExerciseName(this)">Trainingsplan</p>
         </div>
     </div>
     <div id="footer">

@@ -81,7 +81,6 @@ body{
     gap: 1vh;
      
     position: fixed;
-    display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -92,7 +91,7 @@ body{
     width: 20vh;
     height: 15vh;
 
-    opacity: 0;
+    display: none;
 }
 
 #delete, #rename{
