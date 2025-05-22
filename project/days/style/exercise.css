@@ -88,7 +88,7 @@
 .exerciseInfoBox{
     background-color: #C66B4E;
     width: 45vh;
-    height: 20vh;
+    height: 22vh;
 
     margin: 0;
     padding: 0;
@@ -108,13 +108,16 @@
 .countInfoBox, .weightsInfoBox, .poInfoBox{
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
 
     width: 100%;
  
     margin: 0;
     padding: 0;
+    
 
-    gap: 5vh;
+
 }
 
 .nameInfoBox{
@@ -131,15 +134,24 @@
     
 }
 
-.setsInfoBox, .repsInfoBox, .weightInfoBox, .rmInfoBox, .repRInfoBox, .nweightInfoBox{
+.setsInfoBox, .repsInfoBox, .weightInfoBox, .rmInfoBox, .repRInfoBox, .nweightInfoBox, .submitBox{
     display: flex;
     flex-direction: row;
-    justify-content:end;
+    justify-content: center;
 
-    width: 75%;
+    width: 50%;
 
     margin: 0;
     padding: 0;
+
+    
+}
+
+.posEnd{
+    display: flex;
+    justify-content: end;
+
+    width: 100%;
 
     gap: 1vh;
 }
@@ -188,4 +200,38 @@
     background-color: transparent;
     color: white;
     cursor: auto;
+}
+
+.submitButton{
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    background-color: #4C4C4C;
+
+    width: 25vh;
+}
+
+.cancelButton{
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    background-color: red;
+
+    width: 10vh;
 }
