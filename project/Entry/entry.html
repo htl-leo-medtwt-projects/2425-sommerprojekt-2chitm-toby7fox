@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="entrys.js"></script>
+    <script src="../standard/header_footer.js" defer></script>
+    <link rel="stylesheet" href="../standard/standard.css">
+    <script src="entry.js" defer></script>
+
+    <style>
+        #entryBox{
+            width: 80vw;
+            height: 75vh;
+
+            background-color: #FF8A65;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+            gap: 4vh;
+        }
+
+        #calenderLink{
+            position: fixed;
+            right: 0;
+            bottom: 7vh;
+        }
+
+        body{
+            align-items: center;
+            justify-content: center;
+        }
+        input{
+            
+        }
+
+    </style>
+</head>
+<body>
+    <div id="entryBox">
+        <div id="nameBox">Running</div>
+        <div class="inputBox">
+            <input type="text" id="dataInputField1" placeholder="km">
+        </div>
+        <div class="inputBox">
+            <input type="text" id="dataInputField2" placeholder="hm">
+        </div>
+        <div class="inputBox">
+            <input type="text" id="dataInputField3" placeholder="tine">
+        </div>
+        <div id="enterBox" onclick="addSession(this.parentElement)">enter</div>
+    </div>
+
+    <a href="calender.html" id="calenderLink">
+        <div id="calender">calender</div>
+    </a>
+</body>
+</html>
