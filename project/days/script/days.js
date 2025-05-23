@@ -1,7 +1,11 @@
 let number = localStorage.getItem("dayNumber");
 days = JSON.parse(localStorage.getItem("data") ?? days);
+let globalLock = true;
 
 function loadCategorys() {
+    if (!globalLock) {
+        return;
+    }
     document.getElementById('contentBox').innerHTML = null; //HTML reseten
 
     for (let ö = 0; ö < days[number].categorys.length; ö++) {  //geht alle Kategorien durch und ladet dazu passendes HTML
@@ -35,16 +39,20 @@ function loadCategorys() {
 loadCategorys();
 
 
-function extendExercise(e){
-    
+function extendExercise(e) {
+    if (!globalLock) {
+        return;
+    }
+    globalLock = false;
+
     let exerciseName = e.querySelector('.exerciseName').innerHTML;
-    
-    for(let i = 0; i < days[number].categorys.length; i++){
-        for(let k = 0; k < days[number].categorys[i].exercises.length; k++){
+
+    for (let i = 0; i < days[number].categorys.length; i++) {
+        for (let k = 0; k < days[number].categorys[i].exercises.length; k++) {
             console.log(days[number].categorys[i].exercises[i].name);
-            
-            
-            if (days[number].categorys[i].exercises[i].name == exerciseName){
+
+
+            if (days[number].categorys[i].exercises[i].name == exerciseName) {
                 e.innerHTML = `
                 
                 <div class="exercise">
@@ -63,45 +71,64 @@ function extendExercise(e){
                     </div>
                     <div class="countInfoBox">
                         <div class="setsInfoBox">
-                            <p class="setsInfo1">sets :</p>
-                            <div class="setsInfo2" onclick="renameExerciseName(this)">${days[number].categorys[i].exercises[i].sets}</div>
+                            <div class="posEnd">
+                                <p class="setsInfo1">sets :</p>
+                                <div class="setsInfo2" onclick="renameExerciseName(this)">${days[number].categorys[i].exercises[i].sets}</div>
+                            </div>
                         </div>
                         <div class="repsInfoBox">
-                            <p class="repsInfo1">reps :</p>
-                            <div class="repsInfo2" onclick="renameExerciseName(this)">${days[number].categorys[i].exercises[i].reps}</div>
+                            <div class="posEnd">
+                                <p class="repsInfo1">reps :</p>
+                                <div class="repsInfo2" onclick="renameExerciseName(this)">${days[number].categorys[i].exercises[i].reps}</div>
+                            </div>
                         </div>
                     </div>
                     <div class="weightsInfoBox">
                         <div class="weightInfoBox">
-                            <p class="weightInfo1">weight :</p>
-                            <div class="weightInfo2" onclick="renameExerciseName(this)">${days[number].categorys[i].exercises[i].weight}kg</div>
+                            <div class="posEnd">
+                                <p class="weightInfo1">kg :</p>
+                                <div class="weightInfo2" onclick="renameExerciseName(this)">${days[number].categorys[i].exercises[i].weight}</div>
+                            </div>
                         </div>
                         <div class="rmInfoBox">
-                            <p class="rmInfo1">1RM :</p>
-                            <div class="rmInfo2">error</div>
+                            <div class="posEnd">
+                                <p class="rmInfo1">1RM :</p>
+                                <div class="rmInfo2">error</div>
+                            </div>
                         </div>
                     </div>
                     <div class="poInfoBox">
                         <div class="repRInfoBox">
-                            <p class="repRInfo1">rep.r :</p>
-                            <div class="repRInfo2" onclick="renameExerciseName(this)">${days[number].categorys[i].exercises[i].rangeLow}-${days[number].categorys[i].exercises[i].rangeHigh}</div>
+                            <div class="posEnd">
+                                <p class="repRInfo1">rep.r :</p>
+                                <div class="repRInfo2" onclick="renameExerciseName(this)">${days[number].categorys[i].exercises[i].rangeLow}-${days[number].categorys[i].exercises[i].rangeHigh}</div>
+                            </div>
                         </div>
                         <div class="nweightInfoBox">
-                            <p class="nweightInfo1">n.weight :</p>
-                            <div class="nweightInfo2">error</div>
+                            <div class="posEnd">
+                                <p class="nweightInfo1">n.weight :</p>
+                                <div class="nweightInfo2">error</div>
+                            </div>
                         </div>
+                    </div>
+                    <div class="submitBox">
+                        <div class="submitButton">Submit</div>
+                        <div class="cancelButton">Cancel</div>
                     </div>
                 </div>
                 
                 `;
                 return;
             }
-        }
-    }
+        }
+    }
 }
 
 
 function addExercise() {
+    if (!globalLock){
+        return;
+    }
     document.getElementById('optionBox').style.display = "none"; //Optionbox unsichtbar machen
     for (let i = 0; i < days[number].categorys.length; i++) {  //Alle Kategorien durchgehen und schauen ob eine mit dem p Elemnte übereinander stimmt
         if (days[number].categorys[i].name == clickedElement.innerHTML) {
@@ -124,6 +151,9 @@ function addExercise() {
 }
 
 function deleteCategory() {
+    if (!globalLock){
+        return;
+    }
     document.getElementById('optionBox').style.display = "none"; //Optionbox unsichtbar machen
 
     for (let i = 0; i < days[number].categorys.length; i++) {  //Alle Kategorien durchgehen und schauen ob eine mit dem p Elemnte übereinander stimmt
@@ -138,6 +168,9 @@ function deleteCategory() {
 }
 
 function addCategory() {
+    if (!globalLock){
+        return;
+    }
     days[number].categorys.push(
         {
             "name": "Name",
@@ -154,11 +187,14 @@ function addCategory() {
 //renameCategory-------------------------------------------------------------------------------------
 let categoryName;
 function renameCategory() {
+    if (!globalLock){
+        return;
+    }
     document.getElementById('optionBox').style.display = "none"; //Optionbox unsichtbar machen
 
     categoryName = clickedElement.innerHTML;
     clickedElement.innerHTML = `<input class="inputCN" onchange="renameCategory2(this.value)">`;
-    
+
 
 
     const newInput = clickedElement.querySelector('input'); //Fokus im Input Feld setzen
@@ -197,6 +233,9 @@ function renameCategory2(e) {
 //option window-----------------------------------------------------
 var clickedElement;
 function addRightClick() {
+    if (!globalLock){
+        return;
+    }
     const dayElements = document.getElementsByClassName("categoryTitle");
     for (let i = 0; i < dayElements.length; i++) {
         dayElements[i].addEventListener("contextmenu", function (event) {
@@ -217,7 +256,10 @@ addRightClick();
 
 
 //hide Funktion ----------------------------------------------------------------------------------------
-function hide(e){
+function hide(e) {
+    if (!globalLock){
+        return;
+    }
     if (!e.style.transform || e.style.transform == "none") {
         e.style.transform = "rotate(90deg)";
         const boxes = e.parentElement.parentElement.querySelectorAll('.extendetExerciseBox');
@@ -235,16 +277,11 @@ function hide(e){
 //--------------------------------------------------------------------------------------------------------
 
 //rename Dinger für die Exercises--------------------------------------------------------------------------------------------
-let ExerciseName;
-let ExerciseInfoBox2;
-let lol;
-function renameExerciseName(e){
+
+function renameExerciseName(e) {
     event.stopPropagation();
 
-    ExerciseName = e.innerHTML;
-    ExerciseInfoBox2 = e;
-    e.innerHTML = `<input class="nameInfoRename" onchange="renameExerciseName2(this.value)">`;
-    lol = e;
+    e.innerHTML = `<input class="${e.className}" onchange="renameExerciseName2(this)">`;
 
     const newInput = e.querySelector('input'); //Fokus im Input Feld setzen
     setTimeout(() => {
@@ -252,11 +289,17 @@ function renameExerciseName(e){
     }, 0);
 }
 
-function renameExerciseName2(e){
-    lol.innerHTML = `
-        <p class="nameInfo2" onclick="renameExerciseName(this)">${e}</p>
-    `;
+function renameExerciseName2(e) {
+    const p = document.createElement("p");
+    p.className = e.className;
+    p.textContent = e.value;
+    p.onclick = function () {
+        renameExerciseName(this);
+    };
+
+    e.replaceWith(p);
 }
+
 //----------------------------------------------------------------------------------------------------------------------------
 
 //TODO:
