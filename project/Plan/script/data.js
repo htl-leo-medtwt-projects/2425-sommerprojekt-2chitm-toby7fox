@@ -5,9 +5,11 @@ var days = [
         "categorys": [
             {
                 "name": "Chest",
+                "id": "Chest1",
                 "exercises": [
                     {
                         "name": "Benchpress",
+                        "id": "Benchpress1",
                         "sets": 2,
                         "weight": 90,
                         "reps": 5,
@@ -16,6 +18,7 @@ var days = [
                     },
                     {
                         "name": "Dips",
+                        "id": "Dips1",
                         "sets": 2,
                         "weight": 90,
                         "reps": 5,
