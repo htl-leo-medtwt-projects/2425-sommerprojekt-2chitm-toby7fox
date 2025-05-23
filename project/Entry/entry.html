@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="entrys.js"></script>
+    <script src="entrys.js" defer></script>
     <script src="../standard/header_footer.js" defer></script>
     <link rel="stylesheet" href="../standard/standard.css">
     <script src="entry.js" defer></script>
@@ -22,22 +22,40 @@
             flex-direction: column;
 
             gap: 4vh;
+
+            border-radius: 6px;
         }
 
-        #calenderLink{
-            position: fixed;
-            right: 0;
-            bottom: 7vh;
-        }
 
         body{
             align-items: center;
             justify-content: center;
         }
-        input{
-            
+        #nameBox{
+            color: white;
+            font-size: 2.7vh;
         }
+        input{
+            border-radius: 6px;
+            border: none;
+            height: 4vh;
+            width: 25vh;
+            display: flex;
+            text-align: center;
+        }
+        #enterBox{
+            cursor: pointer;
+        }
+        #calenderLink{
+            position: fixed;
+            right: 1vh;
+            bottom: 8vh;
+        }
+        #calender{
+            width: 4vh;
+            height: 4vh;
 
+        }
     </style>
 </head>
 <body>
@@ -50,13 +68,13 @@
             <input type="text" id="dataInputField2" placeholder="hm">
         </div>
         <div class="inputBox">
-            <input type="text" id="dataInputField3" placeholder="tine">
+            <input type="text" id="dataInputField3" placeholder="hour/s">
         </div>
         <div id="enterBox" onclick="addSession(this.parentElement)">enter</div>
     </div>
 
     <a href="calender.html" id="calenderLink">
-        <div id="calender">calender</div>
+        <img src="calendar-day.png" alt="" id="calender">
     </a>
 </body>
 </html>
