@@ -7,7 +7,7 @@ function deleteCategory() {
     document.getElementById('optionBox').style.display = "none"; //Optionbox unsichtbar machen
 
     for (let i = 0; i < days[dayNumber].categorys.length; i++) {  //Alle Kategorien durchgehen und schauen ob eine mit dem p Elemnte übereinander stimmt
-        if (days[dayNumber].categorys[i].name == clickedElement.innerHTML) {
+        if (days[dayNumber].categorys[i].id == clickedElement.getAttribute("id")) {
             days[dayNumber].categorys.splice(i, 1);
             localStorage.setItem("data", JSON.stringify(days)); //days in Localstorage speichern
             loadCategorys();
@@ -34,9 +34,7 @@ function addCategory() {
         {
             "name": "Name",
             "id": `Name${dNumber}`,
-            "exercises": [
-
-            ]
+            "exercises": []
         }
     );
     localStorage.setItem("data", JSON.stringify(days)); //days in Localstorage speichern
@@ -77,10 +75,11 @@ function renameCategory2(e) {
     }
 
     for (let i = 0; i < days[dayNumber].categorys.length; i++) {
-        if (days[dayNumber].categorys[i].name == categoryName) {  //wenn die Stelle im JSON mit dem alten p value übereinstimmt
+        if (days[dayNumber].categorys[i].id == categoryName) {  //wenn die Stelle im JSON mit dem alten p value übereinstimmt
             days[dayNumber].categorys[i].name = e;
             days[dayNumber].categorys[i].id = `${e}${dNumber}`;
             localStorage.setItem("data", JSON.stringify(days)); //days in Localstorage speichern
+            alert("vor dem loadCategorys")
             loadCategorys();
             addRightClick();
             return;
