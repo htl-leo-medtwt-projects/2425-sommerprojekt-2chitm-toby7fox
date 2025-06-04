@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,71 +11,133 @@
     <script src="Entry/entry.js" defer></script>
 
     <style>
-        #entryBox{
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #entryBox {
             width: 80vw;
             height: 75vh;
-
-            background-color: #FF8A65;
 
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
 
-            gap: 4vh;
+            gap: 2vh;
 
-            border-radius: 6px;
         }
 
+        #nameBox {
+            color: #4C4C4C;
+            font-size: 4vh;
+        }
 
-        body{
+        input {
+            border-radius: 4px;
+            border: none;
+            width: 30vh;
+            height: 5vh;
+            display: flex;
+            text-align: center;
+            color: #4C4C4C;
+            font-size: 2vh;
+            border: 3px solid #4C4C4C;
+            outline: none;
+
+            background-color: white;
+        }
+
+        #enterBox {
+            cursor: pointer;
+
+            color: white;
+            border-radius: 4px;
+            width: 30vh;
+            height: 5vh;
+            background-color: #FF8A65;
+            font-size: 2vh;
+
+            display: flex;
             align-items: center;
             justify-content: center;
         }
-        #nameBox{
-            color: white;
-            font-size: 2.7vh;
+
+        p {
+            padding: 0;
+            margin: 0;
         }
-        input{
-            border-radius: 6px;
-            border: none;
-            height: 4vh;
-            width: 25vh;
+
+        #bar {
+            position: fixed;
+            top: 9vh;
             display: flex;
-            text-align: center;
-        }
-        #enterBox{
+            flex-direction: row;
+            gap: 1vh;
+            color: #4C4C4C;
+            font-size: 1.5vh;
             cursor: pointer;
         }
-        #calenderLink{
-            position: fixed;
-            right: 1vh;
-            bottom: 8vh;
-        }
-        #calender{
-            width: 4vh;
-            height: 4vh;
 
+        .barOrange {
+            color: #FF8A65;
+        }
+
+        #calenderButtons {
+            display: flex;
+            flex-direction: row;
+            gap: 1vh;
+        }
+
+        .calendarButton {
+            color: #4C4C4C;
+            border: 3px solid #4C4C4C;
+            width: 14vh;
+            height: 4.5vh;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 2vh;
         }
     </style>
 </head>
+
 <body>
     <div id="entryBox">
-        <div id="nameBox">Running</div>
-        <div class="inputBox">
-            <input type="text" id="dataInputField1" placeholder="km">
+        <div id="bar">
+            <p>-</p>
+            <p onclick="changesportsIndex(0)">Workout</p>
+            <p class="barOrange">-</p>
+            <p onclick="changesportsIndex(1)" class="barOrange">Run</p>
+            <p class="barOrange">-</p>
+            <p onclick="changesportsIndex(2)">Biketour</p>
+            <p>-</p>
+            <p onclick="changesportsIndex(3)">Swimm</p>
+            <p>-</p>
+            <p onclick="changesportsIndex(4)">Sprint</p>
+            <p>-</p>
+            <p onclick="changesportsIndex(5)">Costum</p>
+            <p>-</p>
         </div>
-        <div class="inputBox">
-            <input type="text" id="dataInputField2" placeholder="hm">
+        <div id="nameBox" name="Run">
+            <img src="" alt="">
+            <p id="sportName">New Run</p>
         </div>
-        <div class="inputBox">
-            <input type="text" id="dataInputField3" placeholder="hour/s">
+            <input type="text" id="dataInputField1" placeholder="Distance (km)" unit="km">
+            <input type="text" id="dataInputField2" placeholder="Heightmeter (hm)" unit="km">
+            <input type="text" id="dataInputField3" placeholder="Time (h:m:s:ms)" unit="hour/s">
+        <div id="enterBox" onclick="addSession(this.parentElement)">save</div>
+        <div id="calenderButtons">
+            <a href="calender.html">
+                <div class="calendarButton">Calendar</div>
+            </a>
+            <div class="calendarButton">List</div>
         </div>
-        <div id="enterBox" onclick="addSession(this.parentElement)">enter</div>
     </div>
-
-    <a href="calender.html" id="calenderLink">
-        <img src="Entry/calendar-day.png" alt="" id="calender">
-    </a>
 </body>
+
 </html>

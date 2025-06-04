@@ -40,7 +40,7 @@ function rename() {
 function rename2(e) {  //DOPELLTE ÜBERPRÜFEN
     if (e == "") { //wenn der input lehr ist: alles reseten
         loaddays();
-        
+
         return;
     }
 
@@ -68,14 +68,24 @@ function rename2(e) {  //DOPELLTE ÜBERPRÜFEN
 
 //delete-function----------------------------------
 let deletionDayName;
-function deleteItem(){
+function deleteItem() {
     deletionDayName = dayName = clickedElement.querySelector('p').getAttribute("id");
-    document.getElementById('optionBox').style.opacity = 0; //Optionbox unsichtbar machen
+    document.getElementById('optionBox').style.opacity = 0;
+
 
     for (let i = 0; i < days.length; i++) {
-        if (days[i].id == dayName) {  //wenn die Stelle im JSON mit dem alten p value übereinstimmt
+        if (days[i].id == dayName) {
+
+            for (let k = 0; k < days.length; k++) {
+                if (days[k].name == days[i].name && parseInt(days[k].id.substring(days[k].id.length - 1)) > parseInt(days[i].id.substring(days[i].id.length - 1))) {
+                    days[k].id = `${days[i].name}${parseInt(days[k].id.substring(days[k].id.length - 1)) - 1}`;
+                }
+
+            }
             days.splice(i, 1);
-            localStorage.setItem("data", JSON.stringify(days)); //days in Localstorage speichern
+
+
+            localStorage.setItem("data", JSON.stringify(days));
             loaddays();
             addRightClick();
             return;
@@ -96,7 +106,7 @@ function loaddays() {
     console.log(days);
 }
 
-days = JSON.parse(localStorage.getItem("data") ?? days); //days aus localStorage auslesen (oder die Standart days aus data.js)
+days = (JSON.parse(localStorage.getItem("data")) ?? days); //days aus localStorage auslesen (oder die Standart days aus data.js)
 loaddays(); //beim laden der website: alle elemente ladenlocalStorage.setItem("name", "Max");
 
 //----------------------------------------------------------
@@ -104,15 +114,15 @@ loaddays(); //beim laden der website: alle elemente ladenlocalStorage.setItem("n
 
 //option window-----------------------------------------------------
 var clickedElement;
-function addRightClick(){
+function addRightClick() {
     const dayElements = document.getElementsByClassName("day");
     for (let i = 0; i < dayElements.length; i++) {
-        dayElements[i].addEventListener("contextmenu", function(event) {
+        dayElements[i].addEventListener("contextmenu", function (event) {
             event.preventDefault(); //Das Fenster verhindern was normalerweise bei Rechtsklick generiert wird
 
             clickedElement = event.currentTarget;
             console.log(clickedElement);
-            
+
 
             document.getElementById('optionBox').style.opacity = 1; //Optionbox Sichtbar machen
             optionBox.style.left = event.clientX + 'px'; //Optionbox an Mausposition anpassen

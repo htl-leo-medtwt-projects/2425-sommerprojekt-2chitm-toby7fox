@@ -1,10 +1,14 @@
-console.log(JSON.parse(localStorage.getItem("months")));
 months = JSON.parse(localStorage.getItem("months")) ?? months;
+console.log(months);
+
 let currentMonth;
 let currentDay;
 
-for (let i = 0; i < months.length; i++) {
-    document.getElementById('contentBox').innerHTML += `<div class="month"><p class="monthName">${months[i].month}</p></div>`;
+let i = 0;
+
+
+function loadMonth() {
+    document.getElementById('contentBox').innerHTML += `<div class="month"><img src="Entry/img/arrow.png" id="prevArr"><p class="monthName">${months[i].month}</p><img src="Entry/img/arrow.png" id="nextArr"></div>`;
     currentMonth = document.querySelectorAll('.month');
     currentMonth = currentMonth[currentMonth.length - 1];
     for (let h = 0; h < months[i].days.length; h++) {
@@ -15,11 +19,16 @@ for (let i = 0; i < months.length; i++) {
         for (let r = 0; r < months[i].days[h].sessions.length; r++) {
 
             currentDay.innerHTML += `<div class="session">
-                <p class="sessionName">${months[i].days[h].sessions[r].sport}</p>
-                <p class="sessionInfo1">${months[i].days[h].sessions[r].dataPoints[0].value}${months[i].days[h].sessions[r].dataPoints[0].name}</p>
-                <p class="sessionInfo2">${months[i].days[h].sessions[r].dataPoints[1].value}${months[i].days[h].sessions[r].dataPoints[1].name}</p>
-                <p class="sessionInfo3">${months[i].days[h].sessions[r].dataPoints[2].value}${months[i].days[h].sessions[r].dataPoints[2].name}</p>
+                <img src="Entry/img/${months[i].days[h].sessions[r].sport}.png" class="sportIcon">
+                <p class="sessionName">${months[i].days[h].sessions[r].dataPoints[0].value} ${months[i].days[h].sessions[r].sport}</p>
+                <div class="sessionData">
+                    <p class="sessionInfo2">${months[i].days[h].sessions[r].dataPoints[1].img}  ${months[i].days[h].sessions[r].dataPoints[1].value}${months[i].days[h].sessions[r].dataPoints[1].name}</p>
+                    <p class="sessionInfo3">${months[i].days[h].sessions[r].dataPoints[2].img}  ${months[i].days[h].sessions[r].dataPoints[2].value}${months[i].days[h].sessions[r].dataPoints[2].name}</p>
+                    <p class="sessionInfo4">${months[i].days[h].sessions[r].dataPoints[3].img}  ${months[i].days[h].sessions[r].dataPoints[3].value}${months[i].days[h].sessions[r].dataPoints[3].name}</p>
+                </div>
             </div>`;
         }
     }
 }
+
+loadMonth();

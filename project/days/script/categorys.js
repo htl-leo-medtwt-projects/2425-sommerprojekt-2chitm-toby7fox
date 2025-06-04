@@ -7,7 +7,16 @@ function deleteCategory() {
     document.getElementById('optionBox').style.display = "none"; //Optionbox unsichtbar machen
 
     for (let i = 0; i < days[dayNumber].categorys.length; i++) {  //Alle Kategorien durchgehen und schauen ob eine mit dem p Elemnte übereinander stimmt
-        if (days[dayNumber].categorys[i].id == clickedElement.getAttribute("id")) {
+        if (days[dayNumber].categorys[i].id == clickedCategory.getAttribute("id")) {
+
+            for (let k = 0; k < days[dayNumber].categorys.length; k++) {
+                if (days[dayNumber].categorys[k].name == days[dayNumber].categorys[i].name && parseInt(days[dayNumber].categorys[k].id.substring(days[dayNumber].categorys[k].id.length - 1)) > parseInt(days[dayNumber].categorys[i].id.substring(days[dayNumber].categorys[i].id.length - 1))) {
+                    days[dayNumber].categorys[k].id = `${days[dayNumber].categorys[i].name}${parseInt(days[dayNumber].categorys[k].id.substring(days[dayNumber].categorys[k].id.length - 1)) - 1}`;
+                }
+
+            }
+
+
             days[dayNumber].categorys.splice(i, 1);
             localStorage.setItem("data", JSON.stringify(days)); //days in Localstorage speichern
             loadCategorys();
@@ -49,12 +58,12 @@ function renameCategory() {
     }
     document.getElementById('optionBox').style.display = "none"; //Optionbox unsichtbar machen
 
-    categoryName = clickedElement.getAttribute("id");
-    clickedElement.innerHTML = `<input class="inputCN" onchange="renameCategory2(this.value)">`;
+    categoryName = clickedCategory.getAttribute("id");
+    clickedCategory.innerHTML = `<input class="inputCN" onchange="renameCategory2(this.value)">`;
 
 
 
-    const newInput = clickedElement.querySelector('input'); //Fokus im Input Feld setzen
+    const newInput = clickedCategory.querySelector('input'); //Fokus im Input Feld setzen
     setTimeout(() => {
         newInput.focus();
     }, 0);
@@ -79,7 +88,6 @@ function renameCategory2(e) {
             days[dayNumber].categorys[i].name = e;
             days[dayNumber].categorys[i].id = `${e}${dNumber}`;
             localStorage.setItem("data", JSON.stringify(days)); //days in Localstorage speichern
-            alert("vor dem loadCategorys")
             loadCategorys();
             addRightClick();
             return;
@@ -87,28 +95,19 @@ function renameCategory2(e) {
     }
 }
 
-var clickedElement;
-function addRightClick() {
+
+var clickedCategory;
+function openOptionBox(e){
     if (!globalLock){
         return;
     }
-    const dayElements = document.getElementsByClassName("categoryTitle");
-    for (let i = 0; i < dayElements.length; i++) {
-        dayElements[i].addEventListener("contextmenu", function (event) {
-            event.preventDefault(); //Das Fenster verhindern was normalerweise bei Rechtsklick generiert wird
+    
+    clickedCategory = e;
 
-            clickedElement = event.currentTarget;
-            console.log(clickedElement);
-
-
-            document.getElementById('optionBox').style.display = "flex"; //Optionbox Sichtbar machen
-            optionBox.style.left = event.clientX + 'px'; //Optionbox an Mausposition anpassen
-            optionBox.style.top = event.clientY + 'px';
-        });
-    }
+    document.getElementById('optionBox').style.display = "flex";
+    optionBox.style.left = event.clientX + 'px';
+    optionBox.style.top = event.clientY + 'px';
 }
-addRightClick();
-//-------------------------------------------------------------------
 
 
 //hide Funktion ----------------------------------------------------------------------------------------

@@ -4,26 +4,18 @@ var days = [
         "id": "Example1",
         "categorys": [
             {
-                "name": "Chest",
-                "id": "Chest1",
+                "name": "Example",
+                "id": "Example1",
                 "exercises": [
                     {
-                        "name": "Benchpress",
-                        "id": "Benchpress1",
-                        "sets": 2,
-                        "weight": 90,
-                        "reps": 5,
-                        "rangeLow": 3,
-                        "rangeHigh": 5
-                    },
-                    {
-                        "name": "Dips",
-                        "id": "Dips1",
-                        "sets": 2,
-                        "weight": 90,
-                        "reps": 5,
-                        "rangeLow": 3,
-                        "rangeHigh": 5
+                        "name": "Example",
+                        "id": "Example1",
+                        "sets": 0,
+                        "weight": 0,
+                        "reps": 0,
+                        "rangeLow": 0,
+                        "rangeHigh": 0,
+                        "bwE": false
                     }
                 ]
             },
@@ -41,3 +33,5 @@ function openDay(day){
     }
     window.location.href = "day.html";
 }
+
+localStorage.setItem("bw", "72");
