@@ -1,14 +1,35 @@
+console.log(months);
 months = JSON.parse(localStorage.getItem("months")) ?? months;
 console.log(months);
 
 let currentMonth;
 let currentDay;
 
-let i = 0;
+let i = (months.length - 1);
 
+function nextMonth(){
+    if (i == (months.length - 1)){
+        i = 0;
+        loadMonth();
+        return;
+    }
+    i++;
+    loadMonth();
+}
+
+function lastMonth(){
+    if (i == 0){
+        i = (months.length - 1);
+        loadMonth();
+        return;
+    }
+    i--;
+    loadMonth();
+}
 
 function loadMonth() {
-    document.getElementById('contentBox').innerHTML += `<div class="month"><img src="Entry/img/arrow.png" id="prevArr"><p class="monthName">${months[i].month}</p><img src="Entry/img/arrow.png" id="nextArr"></div>`;
+    document.getElementById('contentBox').innerHTML = null;
+    document.getElementById('contentBox').innerHTML += `<div class="month"><img src="Entry/img/arrow.png" id="prevArr" onclick="lastMonth()"><p class="monthName">${months[i].month}</p><img src="Entry/img/arrow.png" id="nextArr" onclick="nextMonth()"></div>`;
     currentMonth = document.querySelectorAll('.month');
     currentMonth = currentMonth[currentMonth.length - 1];
     for (let h = 0; h < months[i].days.length; h++) {

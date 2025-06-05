@@ -5,105 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="Entry/entrys.js" defer></script>
+    <script src="Entry/scripts/entrys.js" defer></script>
     <script src="standard/header_footer.js" defer></script>
     <link rel="stylesheet" href="standard/standard.css">
-    <script src="Entry/entry.js" defer></script>
+    <script src="Entry/scripts/entry.js" defer></script>
 
-    <style>
-        body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        #entryBox {
-            width: 80vw;
-            height: 75vh;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-
-            gap: 2vh;
-
-        }
-
-        #nameBox {
-            color: #4C4C4C;
-            font-size: 4vh;
-        }
-
-        input {
-            border-radius: 4px;
-            border: none;
-            width: 30vh;
-            height: 5vh;
-            display: flex;
-            text-align: center;
-            color: #4C4C4C;
-            font-size: 2vh;
-            border: 3px solid #4C4C4C;
-            outline: none;
-
-            background-color: white;
-        }
-
-        #enterBox {
-            cursor: pointer;
-
-            color: white;
-            border-radius: 4px;
-            width: 30vh;
-            height: 5vh;
-            background-color: #FF8A65;
-            font-size: 2vh;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        p {
-            padding: 0;
-            margin: 0;
-        }
-
-        #bar {
-            position: fixed;
-            top: 9vh;
-            display: flex;
-            flex-direction: row;
-            gap: 1vh;
-            color: #4C4C4C;
-            font-size: 1.5vh;
-            cursor: pointer;
-        }
-
-        .barOrange {
-            color: #FF8A65;
-        }
-
-        #calenderButtons {
-            display: flex;
-            flex-direction: row;
-            gap: 1vh;
-        }
-
-        .calendarButton {
-            color: #4C4C4C;
-            border: 3px solid #4C4C4C;
-            width: 14vh;
-            height: 4.5vh;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 2vh;
-        }
-    </style>
+    <link rel="stylesheet" href="Entry/style/entry.css">
 </head>
 
 <body>
@@ -130,12 +37,11 @@
             <input type="text" id="dataInputField1" placeholder="Distance (km)" unit="km">
             <input type="text" id="dataInputField2" placeholder="Heightmeter (hm)" unit="km">
             <input type="text" id="dataInputField3" placeholder="Time (h:m:s:ms)" unit="hour/s">
-        <div id="enterBox" onclick="addSession(this.parentElement)">save</div>
         <div id="calenderButtons">
+            <div id="enterBox" onclick="addSession(this.parentElement)">save</div>
             <a href="calender.html">
                 <div class="calendarButton">Calendar</div>
             </a>
-            <div class="calendarButton">List</div>
         </div>
     </div>
 </body>

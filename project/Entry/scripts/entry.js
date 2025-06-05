@@ -1,4 +1,5 @@
 function addSession(e) {
+    alert(e);
     months = JSON.parse(localStorage.getItem("months")) ?? months;
     const now = new Date();
     const currentMonth = `${now.toLocaleString('en-US', { month: 'short' })}${now.getFullYear()}`;
@@ -242,17 +243,16 @@ function loadSport() {
         <input type="text" id="dataInputField1" placeholder="type (z.B. Push)" unit="">
         <input type="text" id="dataInputField2" placeholder="sets" unit="sets" unitImg='<img src="Entry/img/set.png" class="unitImg">'>
         <input type="text" id="dataInputField3" placeholder="Time (h:m:s:ms)" unit="h" unitImg='<img src="Entry/img/clock.png" class="unitImg">'>
-        <div id="enterBox" onclick="addSession(this.parentElement)">save</div>
         <div id="calenderButtons">
+            <div id="enterBox" onclick="addSession(this.parentElement.parentElement)">save</div>
             <a href="calender.html">
                 <div class="calendarButton">Calendar</div>
             </a>
-            <div class="calendarButton">List</div>
         </div>
         `;
     } else if (sportsIndex == 1) {
         document.getElementById("entryBox").innerHTML = `
-            <div id="bar">
+        <div id="bar">
             <p>-</p>
             <p onclick="changesportsIndex(0)">Workout</p>
             <p class="barOrange">-</p>
@@ -274,12 +274,11 @@ function loadSport() {
         <input type="text" id="dataInputField2" placeholder="Distance (km)" unit="km" unitImg='<img src="Entry/img/distance.png" class="unitImg">'>
         <input type="text" id="dataInputField3" placeholder="Heightmeter (hm)" unit="hm" unitImg='<img src="Entry/img/hm.png" class="unitImg">'>
         <input type="text" id="dataInputField4" placeholder="Time (h:m:s:ms)" unit="hour/s" unitImg='<img src="Entry/img/clock.png" class="unitImg">'>
-        <div id="enterBox" onclick="addSession(this.parentElement)">save</div>
         <div id="calenderButtons">
+            <div id="enterBox" onclick="addSession(this.parentElement.parentElement)">save</div>
             <a href="calender.html">
                 <div class="calendarButton">Calendar</div>
             </a>
-            <div class="calendarButton">List</div>
         </div>
         `;
     } else if (sportsIndex == 2) {
@@ -307,12 +306,11 @@ function loadSport() {
         <input type="text" id="dataInputField2" placeholder="Distance (km)" unit="km" unitImg='<img src="Entry/img/distance.png" class="unitImg">'>
         <input type="text" id="dataInputField3" placeholder="Heightmeter (hm)" unit="hm" unitImg='<img src="Entry/img/hm.png" class="unitImg">'>
         <input type="text" id="dataInputField4" placeholder="Time (h:m:s:ms)" unit="hour/s" unitImg='<img src="Entry/img/clock.png" class="unitImg">'>
-        <div id="enterBox" onclick="addSession(this.parentElement)">save</div>
         <div id="calenderButtons">
+            <div id="enterBox" onclick="addSession(this.parentElement.parentElement)">save</div>
             <a href="calender.html">
                 <div class="calendarButton">Calendar</div>
             </a>
-            <div class="calendarButton">List</div>
         </div>
         `;
     } else if (sportsIndex == 3) {
@@ -339,12 +337,11 @@ function loadSport() {
         <input type="text" id="dataInputField1" placeholder="type" unit="">
         <input type="text" id="dataInputField2" placeholder="Distance (x*m)" unit="m" unitImg='<img src="Entry/img/distance.png" class="unitImg">'>
         <input type="text" id="dataInputField3" placeholder="Time (h:m:s:ms)" unit="hour/s" unitImg='<img src="Entry/img/clock.png" class="unitImg">'>
-        <div id="enterBox" onclick="addSession(this.parentElement)">save</div>
         <div id="calenderButtons">
+            <div id="enterBox" onclick="addSession(this.parentElement.parentElement)">save</div>
             <a href="calender.html">
                 <div class="calendarButton">Calendar</div>
             </a>
-            <div class="calendarButton">List</div>
         </div>
         `;
     } else if (sportsIndex == 4) {
@@ -370,12 +367,11 @@ function loadSport() {
         </div>
         <input type="text" id="dataInputField2" placeholder="Distance (x*m)" unit="m" unitImg='<img src="Entry/img/distance.png" class="unitImg">'>
         <input type="text" id="dataInputField3" placeholder="Timelol" unit="lol" unitImg='<img src="Entry/img/clock.png" class="unitImg">'>
-        <div id="enterBox" onclick="addSession(this.parentElement)">save</div>
         <div id="calenderButtons">
+            <div id="enterBox" onclick="addSession(this.parentElement.parentElement)">save</div>
             <a href="calender.html">
                 <div class="calendarButton">Calendar</div>
             </a>
-            <div class="calendarButton">List</div>
         </div>
         `;
     } else if (sportsIndex == 5) {
@@ -403,12 +399,11 @@ function loadSport() {
         <input type="text" id="dataInputField2" placeholder="Costum" unit="" unitImg=''>
         <input type="text" id="dataInputField3" placeholder="Costum" unit="" unitImg=''>
         <input type="text" id="dataInputField4" placeholder="Costum" unit="" unitImg=''>
-        <div id="enterBox" onclick="addSession(this.parentElement)">save</div>
         <div id="calenderButtons">
+            <div id="enterBox" onclick="addSession(this.parentElement.parentElement)">save</div>
             <a href="calender.html">
                 <div class="calendarButton">Calendar</div>
             </a>
-            <div class="calendarButton">List</div>
         </div>
         `;
     }

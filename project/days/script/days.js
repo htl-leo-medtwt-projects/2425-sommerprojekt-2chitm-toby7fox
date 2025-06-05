@@ -108,7 +108,7 @@ function extendExercise(e) {
                         <div class="nweightInfoBox">
                             <div class="posEnd">
                                 <p class="nweightInfo1">n.weight :</p>
-                                <div class="nweightInfo2">error</div>
+                                <div class="nweightInfo2">${calculateNW(days[dayNumber].categorys[i].exercises[k].rangeHigh, days[dayNumber].categorys[i].exercises[k].rangeHigh, days[dayNumber].categorys[i].exercises[k].reps, days[dayNumber].categorys[i].exercises[k].weight, days[dayNumber].categorys[i].exercises[k].bwE)}</div>
                             </div>
                         </div>
                     </div>

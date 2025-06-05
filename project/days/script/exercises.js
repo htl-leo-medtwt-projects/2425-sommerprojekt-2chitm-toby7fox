@@ -14,7 +14,6 @@ function addExercise() {
         }
     }
 
-    alert(clickedCategory)
     for (let i = 0; i < days[dayNumber].categorys.length; i++) {  //Alle Kategorien durchgehen und schauen ob eine mit dem p Elemnte übereinander stimmt
         if (days[dayNumber].categorys[i].id == clickedCategory.getAttribute("id")) {
 

@@ -29,6 +29,12 @@ function calculate6RM(weight, reps, bwE) {
 
 
 
-function calculateNW() {
-    
+function calculateNW(repLow ,repHigh, reps, weight, bwE) {
+    if (reps <= repHigh) return weight;
+
+    const oneRM = calculate1RM(weight, reps, bwE);
+
+    const targetWeight = oneRM / (1 + repLow / 30);
+
+    return Math.round(targetWeight * 100) / 100;
 }
